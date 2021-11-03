@@ -70,7 +70,7 @@ return (
                   <Link  onClick={()=> window.scrollTo(0, 0)}  style={{color: 'white', marginBottom: 5}}  to="/contact">Contact Us</Link>
                   <Link  onClick={()=> window.scrollTo(0, 0)}  style={{color: 'white', marginBottom: 5}}  to="/blog">Blogs</Link>
                   <Link  onClick={()=> window.scrollTo(0, 0)}  style={{color: 'white', marginBottom: 5}} to="/privacypolicy">Privacy Policy</Link> */}
-                  {/* <a href="https://www.bbb.org/us/il/schaumburg/profile/internet-marketing-services/mass-interact-0654-88488219/#sealclick" target="_blank" rel="nofollow">
+                  {/* <a href="https://www.bbb.org/us/il/schaumburg/profile/internet-marketing-services/mass-interact-0654-88488219/#sealclick" rel="noopener noreferrer" rel="nofollow">
                      <img src="https://seal-chicago.bbb.org/seals/blue-seal-150-110-whitetxt-bbb-88488219.png"  alt="Mass Interact BBB Business Review" />
                   </a> */}
                 </ul>
@@ -116,7 +116,7 @@ return (
        </div>
        <div className="row py-5">
        <div className="col-lg-12 col-sm-6 text-center">
-       <a href="https://www.bbb.org/us/il/schaumburg/profile/internet-marketing-services/mass-interact-0654-88488219/#sealclick" target="_blank" rel="nofollow">
+       <a href="https://www.bbb.org/us/il/schaumburg/profile/internet-marketing-services/mass-interact-0654-88488219/#sealclick" rel="noopener noreferrer">
                      <img src="https://seal-chicago.bbb.org/seals/blue-seal-150-110-whitetxt-bbb-88488219.png" style={{}}  alt="Mass Interact BBB Business Review" />
                      
                   </a> 

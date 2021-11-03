@@ -28,6 +28,7 @@ function CareerSection() {
             src={image}
             className="our-team"
             width='3000'
+            alt='some value'
             height='1500'
             />
             <div className="container4">

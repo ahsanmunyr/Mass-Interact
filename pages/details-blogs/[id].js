@@ -5,7 +5,7 @@ import AOS from 'aos';
 import Image from 'next/image'
 import Link from 'next/link'
 // import ActiveLink from './ActiveLink';
-import blogs from './../Modal/blogs'
+// import blogs from './../Modal/blogs'
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 
@@ -71,7 +71,7 @@ function DetailBlog() {
     }, []);
 
     return (
-        <div>{id}</div>
+        <div key={id}>{id}</div>
 
     )
 }

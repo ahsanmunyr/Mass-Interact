@@ -41,6 +41,7 @@ return (
                         height={600}
                         placeholder="blur" 
                         src={image}
+                        alt='some value'
                         className="for-fun"
                     />
                     {/* <LazyLoadImage

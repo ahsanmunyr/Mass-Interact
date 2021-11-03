@@ -44,6 +44,7 @@ return(
     <Navbar sticky="top" expand="md" bg="white" className="navbar"  >
         <Link href="/">
                 <Image
+                 
                     src={image}
                     alt="Picture of the author"
                     width={140}
@@ -228,9 +229,9 @@ return(
                                         </div>
                                         <div className="col-xl-12 col-lg-12 col-md-12 px-1">
                                             <div className="for-flexing">
-                                                <a href="https://www.massinteract.com/marietta-college/" target="_blank">
+                                                <a href="https://www.massinteract.com/marietta-college/" rel="noopener noreferrer">
                                                     <div className="img-size-mega-menu">
-                                                          <Image className="next-image" placeholder='blur' src={MS}/>
+                                                          <Image alt='some value' className="next-image" placeholder='blur' src={MS}/>
                                                     </div>
                                                     <div className="text-mega-menu-links">
                                                         <p>Marietta College </p>
@@ -240,9 +241,9 @@ return(
                                         </div>
                                         <div className="col-xl-12 col-lg-12 col-md-12 px-1">
                                             <div className="for-flexing">
-                                                <a href="https://massinteract.com/cambridge-college/" target="_blank">
+                                                <a href="https://massinteract.com/cambridge-college/" rel="noopener noreferrer">
                                                     <div className="img-size-mega-menu">
-                                                        <Image className="next-image" placeholder='blur' src={CC}/>
+                                                        <Image alt='some value' className="next-image" placeholder='blur' src={CC}/>
                                                    
                                                     </div>
                                                     <div className="text-mega-menu-links">
@@ -253,9 +254,9 @@ return(
                                         </div>
                                         <div className="col-xl-12 col-lg-12 col-md-12 px-1">
                                             <div className="for-flexing">
-                                                <a href="https://www.massinteract.com/nw-mississippi-college/" target="_blank">
+                                                <a href="https://www.massinteract.com/nw-mississippi-college/" rel="noopener noreferrer">
                                                     <div className="img-size-mega-menu">
-                                                    <Image className="next-image" placeholder='blur' src={NW}/>
+                                                    <Image alt='some value' className="next-image" placeholder='blur' src={NW}/>
                                                     
                                                     </div>
                                                     <div className="text-mega-menu-links">
@@ -266,9 +267,9 @@ return(
                                         </div>
                                         <div className="col-xl-12 col-lg-12 col-md-12 px-1">
                                             <div className="for-flexing">
-                                                <a href="https://massinteract.com/covenant-college/" target="_blank">
+                                                <a href="https://massinteract.com/covenant-college/" rel="noopener noreferrer">
                                                     <div className="img-size-mega-menu">
-                                                    <Image className="next-image" placeholder='blur' src={CCL}/>
+                                                    <Image alt='some value' className="next-image" placeholder='blur' src={CCL}/>
                                                 
                                                     </div>
                                                     <div className="text-mega-menu-links">
@@ -279,9 +280,9 @@ return(
                                         </div>
                                         <div className="col-xl-12 col-lg-12 col-md-12 px-1">
                                             <div className="for-flexing">
-                                                <a href="https://massinteract.com/westminster-college/" target="_blank">
+                                                <a href="https://massinteract.com/westminster-college/" rel="noopener noreferrer">
                                                     <div className="img-size-mega-menu">
-                                                        <Image className="next-image" placeholder='blur' src={NWWC}/>
+                                                        <Image alt='some value' className="next-image" placeholder='blur' src={NWWC}/>
                                                     </div>
                                                     <div className="text-mega-menu-links">
                                                         <p>Westminster College</p>
@@ -294,9 +295,9 @@ return(
                                         <h6><br/></h6>
                                         <div className="col-xl-12 col-lg-12 col-md-12 px-1">
                                             <div className="for-flexing">
-                                                <a href="https://massinteract.com/west-liberty-university/" target="_blank">
+                                                <a href="https://massinteract.com/west-liberty-university/" rel="noopener noreferrer">
                                                     <div className="img-size-mega-menu">
-                                                    <Image className="next-image" placeholder='blur' src={UWM}/>
+                                                    <Image alt='some value' className="next-image" placeholder='blur' src={UWM}/>
                                                     </div>
                                                     <div className="text-mega-menu-links">
                                                         <p>West Liberty University</p>
@@ -306,9 +307,9 @@ return(
                                             </div>
                                             <div className="col-xl-12 col-lg-12 col-md-12 px-1">
                                                 <div className="for-flexing">
-                                                <a href="https://s3.amazonaws.com/vtvt/VTTOUR.html" target="_blank">
+                                                <a href="https://s3.amazonaws.com/vtvt/VTTOUR.html" rel="noopener noreferrer">
                                                     <div className="img-size-mega-menu">
-                                                        <Image className="next-image" placeholder='blur' src={VT}/>
+                                                        <Image alt='some value' className="next-image" placeholder='blur' src={VT}/>
                                                     </div>
                                                     <div className="text-mega-menu-links">
                                                         <p>VT Virginia Tech</p>
@@ -318,9 +319,9 @@ return(
                                             </div>
                                             <div className="col-xl-12 col-lg-12 col-md-12 px-1">
                                                 <div className="for-flexing">
-                                                <a href="https://tourmkr.com/F1WZkO2CpT/7971185p&99.48h&99.03t" target="_blank">
+                                                <a href="https://tourmkr.com/F1WZkO2CpT/7971185p&99.48h&99.03t" rel="noopener noreferrer">
                                                     <div className="img-size-mega-menu">
-                                                        <Image className="next-image" placeholder='blur' src={UOP}/>
+                                                        <Image alt='some value' className="next-image" placeholder='blur' src={UOP}/>
                                                     </div>
                                                     <div className="text-mega-menu-links">
                                                         <p>University of Pittsburgh </p>
@@ -330,9 +331,9 @@ return(
                                             </div>
                                             <div className="col-xl-12 col-lg-12 col-md-12 px-1">
                                             <div className="for-flexing">
-                                                <a href="https://www.massinteract.com/worcester-state-university/" target="_blank">
+                                                <a href="https://www.massinteract.com/worcester-state-university/" rel="noopener noreferrer">
                                                     <div className="img-size-mega-menu">
-                                                        <Image className="next-image" placeholder='blur' src={WS}/>
+                                                        <Image alt='some value' className="next-image" placeholder='blur' src={WS}/>
                                                     </div>
                                                     <div className="text-mega-menu-links">
                                                         <p>Worcester State University</p>
@@ -342,9 +343,9 @@ return(
                                             </div>
                                             <div className="col-xl-12 col-lg-12 col-md-12 px-1">
                                                 <div className="for-flexing">
-                                                <a href="https://tourmkr.com/F1webstervienna/10083034p&316.59h&98.03t" target="_blank">
+                                                <a href="https://tourmkr.com/F1webstervienna/10083034p&316.59h&98.03t" rel="noopener noreferrer">
                                                     <div className="img-size-mega-menu">
-                                                        <Image className="next-image" placeholder='blur' src={WUS}/>
+                                                        <Image alt='some value' className="next-image" placeholder='blur' src={WUS}/>
                                                     </div>
                                                     <div className="text-mega-menu-links">
                                                         <p>Webster University</p>
@@ -365,9 +366,9 @@ return(
                                             </div>                                               
                                             <div className="col-xl-12 col-lg-12 col-md-12 px-1">
                                                 <div className="for-flexing">
-                                                <a href="https://tourmkr.com/F1CF4FoiCh/9488211p&11.08h&81.61t" target="_blank">
+                                                <a href="https://tourmkr.com/F1CF4FoiCh/9488211p&11.08h&81.61t" rel="noopener noreferrer">
                                                 <div className="img-size-mega-menu">
-                                                        <Image className="next-image" placeholder='blur' src={NCAA}/>
+                                                        <Image alt='some value' className="next-image" placeholder='blur' src={NCAA}/>
                                                         </div>
                                                         <div className="text-mega-menu-links">
                                                             <p>NCAA Hall of Champions</p>
@@ -377,9 +378,9 @@ return(
                                             </div>
                                             <div className="col-xl-12 col-lg-12 col-md-12 px-1">
                                                 <div className="for-flexing">
-                                                    <a href="https://massinteract.com/olympia-fields-country-club/" target="_blank">
+                                                    <a href="https://massinteract.com/olympia-fields-country-club/" rel="noopener noreferrer">
                                                         <div className="img-size-mega-menu">
-                                                            <Image className="next-image" placeholder='blur' src={OFCCG}/>
+                                                            <Image alt='some value' className="next-image" placeholder='blur' src={OFCCG}/>
                                                         </div>
                                                         <div className="text-mega-menu-links">
                                                             <p>Olympia Fields Country Club</p>
@@ -393,9 +394,9 @@ return(
                                         <h6>Hotels Tour</h6>                       
                                             <div className="col-xl-12 col-lg-12 col-md-12 px-1">
                                                 <div className="for-flexing">
-                                                    <a href="https://massinteract.com/the-phoenician-resort/" target="_blank">
+                                                    <a href="https://massinteract.com/the-phoenician-resort/" rel="noopener noreferrer">
                                                         <div className="img-size-mega-menu">
-                                                            <Image className="next-image" placeholder='blur' src={PCL}/>
+                                                            <Image alt='some value' className="next-image" placeholder='blur' src={PCL}/>
                                                         </div>
                                                         <div className="text-mega-menu-links">
                                                             <p>The Phoenician Resort</p>

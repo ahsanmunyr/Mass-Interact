@@ -4,7 +4,7 @@ import styles from '../styles/Home.module.css'
 import BlogSection from '../Components/Blogs'
 import Banner from '../Components/Banner'
 
-export default function Blogs({json,jsons}) {
+function Blogs({json,jsons}) {
  
   return (
     <div className={styles.container}>
@@ -40,7 +40,7 @@ export async function getStaticProps () {
     },
   }
 }
-
+export default Blogs;
 // export async function getStaticPropss () {
 //   const res = await fetch('webprojectmockup.com/custom/mass_interact/public/api/latest_blogs')
 //   const jsons = await res.json()

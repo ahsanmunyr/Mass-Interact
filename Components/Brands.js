@@ -13,7 +13,7 @@ import image26 from './../Assets/Logos/DT.png'
 import image27 from './../Assets/Logos/P.png'
 import image28 from './../Assets/Logos/ML.png'
 import Image from 'next/image'
-import React , {useEffect, useState} from 'react'
+import React , {useEffect, useState,  useReducer } from 'react'
 import { Carousel  } from 'react-bootstrap';
 import Iframe from 'react-iframe'
 import 'aos/dist/aos.css'; 
@@ -59,8 +59,8 @@ return (
             <div style={{width:'100%', display:'flex', flexWrap:'wrap', flexDirection:'row'}} className="py-3">
             {
                array.map((item, index)=>(
-                  <div data-aos="flip-up" className="col-md-3 m-auto">
-                     <a href={item.url} target="_blank">
+                  <div key={index} data-aos="flip-up" className="col-md-3 m-auto">
+                     <a href={item.url} rel="noopener noreferrer">
                         <div className="sponsors-clients">
                            {/* <img src={image16}/> */}
                            <img height="100px" width="200px" src={'https://webprojectmockup.com/custom/mass_interact/public/'+item.image} />

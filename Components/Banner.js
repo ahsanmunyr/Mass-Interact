@@ -30,6 +30,7 @@ function Banner({heading}) {
             heading == "About Us" ?
             // <img src={image} className="trust"/>
             <Image
+                alt='some value'
                 src={image}
                 placeholder='blur'
                 height="700px"

@@ -38,7 +38,7 @@ function Education() {
                            <div className="panorama transform">
                               <Iframe src="https://www.google.com/maps/embed?pb=!1m0!4v1503425657544!6m8!1m7!1sN4S5IHHKZq4AAAQn71irbQ!2m2!1d41.89153595307924!2d-87.60891559845425!3f282.53!4f-0.4099999999999966!5f0.7820865974627469" width="100%" height="450" frameBorder="0" style={{border: 0}}  allowFullScreen={true}/>
                               <div className="image-text">
-                                 <h3>CHICAGO CHILDREN'S MUSEUM</h3>
+                                 <h3>CHICAGO CHILDREN`S MUSEUM</h3>
                               </div>
                            </div>
                     </div>
@@ -56,7 +56,7 @@ function Education() {
                            <div className="panorama transform">
                               <Iframe src="https://www.google.com/maps/embed?pb=!1m0!4v1503425802832!6m8!1m7!1sFwMFZlW4MvwAAAQvxfikcA!2m2!1d41.92413504922321!2d-87.65465921032376!3f94.98!4f3.9000000000000057!5f0.7820865974627469" width="100%" height="450" frameBorder="0" style={{border: 0}}  allowFullScreen={true}/>
                               <div className="image-text">
-                                 <h3>Arts & Letters Hall</h3>
+                                 <h3>Arts and Letters Hall</h3>
                               </div>
                            </div>
                     </div>

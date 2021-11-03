@@ -206,7 +206,7 @@ function CareerForm() {
           </div>
           <div className="col-lg-6 my-auto">
              {/* <div className="careers-form"> */}
-             <form onSubmit={handleSubmit(onSubmit)}   class="form-inputs">
+             <form onSubmit={handleSubmit(onSubmit)}   className="form-inputs">
                 <div className="row">
                    <div className="col-lg-6 col-sm-6 col-12" style={{display:'flex', flexDirection:'row'}}>
                    <span style={{color:'red'}}>*&nbsp;</span>

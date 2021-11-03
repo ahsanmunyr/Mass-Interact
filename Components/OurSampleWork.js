@@ -35,7 +35,7 @@ return (
    
             <div className="service-screen">
             {/* <Zoom > */}
-               <Image height='800' width='2200' src={image1} placeholder='blur'  />
+               <Image  alt='some value' height='800' width='2200' src={image1} placeholder='blur'  />
                <div className="frame-service-center">
                   <iframe src={
                      name == "CVTS" ?

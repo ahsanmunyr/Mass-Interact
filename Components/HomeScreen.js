@@ -200,7 +200,7 @@ function HomeSection() {
                <div className="col-sm-12 col-lg-6 center-md text-white text-left " >
                   <h2  className="masthead" style={{textAlign:'center', color:'white'}}> a globally trusted virtual tour provider</h2>
                   <h2 style={{ textAlign: 'center', flexDirection:'column', justifyContent:'center'}}>
-                     <span style={{color: 'white'}} className="masthead">Let Google's #1 Agency tell your virtual story</span>
+                     <span style={{color: 'white'}} className="masthead">Let Google`s #1 Agency tell your virtual story</span>
                   </h2>
                   </div>
                <div className="col-sm-12 col-lg-6 form-horizontal form-white text-white text-left" >
@@ -239,7 +239,7 @@ function HomeSection() {
                               <div style={{ }}  className="recaptcha-css ml-2">
                               <ReCAPTCHA
                                  onChange={recaptchaVal}
-                                 stoken
+                                 // stoken
                                  sitekey="6LdzjpocAAAAAI_h98i0kQihQYk9MZTSQK5bJTnI"
                                  />
                               </div>
@@ -285,7 +285,7 @@ function HomeSection() {
          <div className="container">
             <div className="row">
                <div className="img-area img-sec-area-3 ">
-                  <Image src={image2} className="img-home-2"  height="1000" width="1000"    />
+                  <Image alt='some value' src={image2} className="img-home-2"  height="1000" width="1000"    />
                </div>
                <div className="col" style={{
                   display: 'flex',

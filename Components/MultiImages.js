@@ -125,7 +125,7 @@ const MultiImages=()=>{
                           display: 'flex',
                           justifyContent: 'center'
                       }}>
-                    <Image className="frame img-home-3" data-scroll-zoom src={centre} />
+                    <Image alt='some value' className="frame img-home-3" data-scroll-zoom src={centre} />
                     {/* <img className="frame img-home-3" data-scroll-zoom src={centre} /> */}
             </div>
       </div>

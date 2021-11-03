@@ -97,7 +97,7 @@ function BlogSection({array, array1}) {
         
          {
             filteredData.map((item, index)=>(
-               <div className="my-5" key={item.id}>
+               <div className="my-5" key={index}>
                 <div data-aos="fade-up-right"  className="img-item blogImage">
                    <img src={'https://webprojectmockup.com/custom/mass_interact/public/'+item.image} />
                   {/* {console.log(item.image)} */}
@@ -151,7 +151,7 @@ function BlogSection({array, array1}) {
                title: "update check" */}
                 {
                 filteredData1.map((item, index)=>(
-                  <div data-aos="zoom-in" className="inner-post">
+                  <div key={index} data-aos="zoom-in" className="inner-post">
                   <div className="post-image blogImage">
                   <img src={'https://webprojectmockup.com/custom/mass_interact/public/'+item.image} />
                   </div>
@@ -171,22 +171,22 @@ function BlogSection({array, array1}) {
              </div>
              <div className="follow-btn ">
                <span  className="m-1" >
-                  <a href="https://www.facebook.com/massinteract/" target="_blank">
+                  <a href="https://www.facebook.com/massinteract/"  rel="noopener noreferrer">
                      <FontAwesomeIcon color="#f65c2a" icon={faFacebook}></FontAwesomeIcon>
                   </a>
                </span>
                <span  className="m-1" >
-                  <a href="https://twitter.com/massinteract/" target="_blank">
+                  <a href="https://twitter.com/massinteract/" rel="noopener noreferrer">
                      <FontAwesomeIcon color="#f65c2a" icon={faTwitter}></FontAwesomeIcon>
                   </a>
                </span>
                <span  className="m-1" >
-                  <a href="https://www.linkedin.com/company/massinteract" target="_blank">
+                  <a href="https://www.linkedin.com/company/massinteract" rel="noopener noreferrer">
                      <FontAwesomeIcon color="#f65c2a" icon={faLinkedin}></FontAwesomeIcon>
                   </a>
                </span>
                <span  className="m-1" >
-                  <a href="https://www.instagram.com/massinteract/" target="_blank">
+                  <a href="https://www.instagram.com/massinteract/" rel="noopener noreferrer">
                      <FontAwesomeIcon color="#f65c2a" icon={faInstagram}></FontAwesomeIcon>
                      </a>
                </span>

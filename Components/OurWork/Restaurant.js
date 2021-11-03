@@ -39,7 +39,7 @@ function Restaurant() {
               <div className="panorama transform">
                  <Iframe src="https://www.google.com/maps/embed?pb=!1m0!4v1503424225533!6m8!1m7!1sb77_L3RYsrcAAAQvvcJEKQ!2m2!1d41.968381784088!2d-87.68824928126037!3f353!4f0!5f0.7820865974627469" width="100%" height="450" frameBorder="0" style={{border: 0}}  allowFullScreen={true}/>
                  <div className="image-text">
-                    <h3>ARTANGO BAR & STEAKHOUSE</h3>
+                    <h3>ARTANGO BAR AND STEAKHOUSE</h3>
                  </div>
               </div>
        </div>

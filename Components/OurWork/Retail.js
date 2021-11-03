@@ -39,7 +39,7 @@ function Retail() {
                            <div className="panorama transform">
                               <Iframe src="https://www.google.com/maps/embed?pb=!1m0!4v1503422722488!6m8!1m7!1sJumuZ6s0P48AAAQvwspuOQ!2m2!1d41.70483483348449!2d-87.6819318263976!3f281.54!4f-2.319999999999993!5f0.7820865974627469" width="100%" height="450" frameBorder="0" style={{border: 0}}  allowFullScreen={true}/>
                               <div className="image-text">
-                                 <h3>THE QUILTER'S TRUNK</h3>
+                                 <h3>THE QUILTER`S TRUNK</h3>
                               </div>
                            </div>
                     </div>

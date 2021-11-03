@@ -115,7 +115,7 @@ function PhotographySection() {
                <div data-aos="fade-left" className="col-lg-6 mt-3">
                   <div className="photography-service-image">
                      {/* <img src={image1}/> */}
-                     <Image src={image1} placeholder='blur'  />
+                     <Image alt='some value' src={image1} placeholder='blur'  />
                      {/* <LazyLoadImage
                         alt={image1}
                         threshold={400}
@@ -142,7 +142,7 @@ function PhotographySection() {
                <div data-aos="fade-left"  className="col-lg-6 mt-3">
                   <div className="photography-service-image">
                      {/* <img src={image3} /> */}
-                     <Image src={image3} placeholder='blur'  />
+                     <Image alt='some value' src={image3} placeholder='blur'  />
                      {/* <LazyLoadImage
                         alt={image3}
                         threshold={400}
@@ -156,7 +156,7 @@ function PhotographySection() {
             <div className="row pb-5">
                <div data-aos="fade-left" className="col-lg-6 mt-3">
                   <div className="photography-service-image">
-                  <Image src={image4} placeholder='blur'  />
+                  <Image alt='some value' src={image4} placeholder='blur'  />
                      {/* <img src={image4} /> */}
                      {/* <LazyLoadImage
                         alt={image4}

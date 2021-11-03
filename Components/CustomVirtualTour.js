@@ -36,7 +36,7 @@ function CustomVirtualTourSection() {
              <h3>Custom Virtual Tours Services</h3>
                 <br/>
                 <p>
-                In a world where consumers seek instant gratification, businesses can find a massive competitive advantage by providing a superior, immersive, and unique customer experience. A professional-quality virtual tour is one of the best ways. Mass Interacts Custom Virtual Tours allow prospective customers to see what you have to offer - without leaving the comfort of their own home. (Mass Interact's)
+                In a world where consumers seek instant gratification, businesses can find a massive competitive advantage by providing a superior, immersive, and unique customer experience. A professional-quality virtual tour is one of the best ways. Mass Interacts Custom Virtual Tours allow prospective customers to see what you have to offer - without leaving the comfort of their own home. (Mass Interact`s)
                 </p>
  
                 <p>
@@ -96,7 +96,7 @@ function CustomVirtualTourSection() {
              <div className="multiple-location">
                 <div data-aos="fade-left" className="multiple-1">
                    <h3>HAVE MULTIPLE LOCATIONS? <br/> NO PROBLEM.</h3>
-                   <p>We have photographers in every major city, allowing us to schedule & shoot your 360 Tour where you need us!</p>
+                   <p>We have photographers in every major city, allowing us to schedule and shoot your 360 Tour where you need us!</p>
                 </div>
                 <div data-aos="fade-right" className="multiple-2 my-auto ml-auto">
                 <ActiveLink activeClassName="active" href="/contact">

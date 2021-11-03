@@ -64,7 +64,7 @@ return (
 
     <Carousel activeIndex={index} onSelect={handleSelect}  interval={3000}>
     { array.map((item,index)=>
-                <Carousel.Item>
+                <Carousel.Item key={index}>
                 <div className="testimonials min-850" >
                         <Carousel.Caption className="testimonialContent" >
                         <div  style={{}}>

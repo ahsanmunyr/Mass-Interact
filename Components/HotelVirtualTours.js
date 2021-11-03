@@ -50,7 +50,7 @@ function HotelVirtualTourSection() {
           <div className="container py-3">
              <div data-aos="fade-left" className="service-1-img">
                 {/* <img src={image}/> */}
-                <Image 
+                <Image  alt='some value'
                     placeholder='blur'
                     src={image}
                     width={2000}
