@@ -214,7 +214,7 @@ function DetailBlog({lBlog}) {
                <ol>
                   {
                      JSON.parse(dataChange.points).map((item, index)=>
-                        <li  data-aos="fade-up"  key={index}><span>{item.title} – </span>{item.desc}</li>
+                        <li  data-aos="fade-up"   key={index}><span>{item.title} – </span>{item.desc}</li>
                      )
                   }
                </ol>:null
@@ -229,8 +229,8 @@ function DetailBlog({lBlog}) {
                <div data-aos="fade-up"  className="tags-blogs pt-5">
                {
                      JSON.parse(dataChange.tags).map((item, index)=> 
-                     <span>
-                     <a key={index} href="#">{item} <FontAwesomeIcon color="white" style={{marginLeft: 5}} icon={faTags}></FontAwesomeIcon> </a> 
+                     <span key={index}>
+                     <a  href="#">{item} <FontAwesomeIcon color="white" style={{marginLeft: 5}} icon={faTags}></FontAwesomeIcon> </a> 
                      
                      </span>
                      )
@@ -355,7 +355,7 @@ function DetailBlog({lBlog}) {
                               <ul>
                                  {
                                     (lBlog.data).map((item, index)=> 
-                                    <span style={{
+                                    <span key={index} style={{
                                        display:'flex',
                                        flexDirection:'row'
                                     }}>
