@@ -2,11 +2,13 @@ import '../styles/globals.css'
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/css/bootstrap.css'
 import '../styles/style.css';
+import 'aos/dist/aos.css';
 import Footer from '../Components/Footer';
 import Header from '../Components/Header';
 import Head from "next/head";
 import Image from "next/image"
 import "nprogress/nprogress.css";
+import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useState } from 'react'
 import Router from "next/router";
 import "@fortawesome/fontawesome-svg-core/styles.css"; // import Font Awesome CSS
@@ -18,8 +20,8 @@ config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatic
 
 
 
-function MyApp({ Component, pageProps, data, testimonial }) {
-
+function MyApp({ Component, pageProps, data, testimonial, latestBlogs }) {
+  // console.log(latestBlogs)
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -53,12 +55,14 @@ function MyApp({ Component, pageProps, data, testimonial }) {
 
   return <> 
   <Head>
+          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
           crossOrigin="anonymous" 
           />
+          
           {/* <script
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
@@ -67,7 +71,7 @@ function MyApp({ Component, pageProps, data, testimonial }) {
           {/* <TopProgressBar /> */}
          
              <Header/>
-             <Component brands={data} test={testimonial} {...pageProps} />
+             <Component brands={data} test={testimonial} lBlog={latestBlogs} {...pageProps} />
              <Footer/>
            
          
@@ -79,8 +83,10 @@ MyApp.getInitialProps = async () => {
   const json = await res.json();
   const ress = await fetch('https://webprojectmockup.com/custom/mass_interact/public/api/get_testinomials');
   const jsonn = await ress.json();
+  const resss = await fetch('https://webprojectmockup.com/custom/mass_interact/public/api/latest_blogs')
+  const jsonss = await resss.json()
   // console.log(json)
-  return { data: json.data, testimonial: jsonn }
+  return { data: json.data, testimonial: jsonn, latestBlogs: jsonss }
 }
 
 

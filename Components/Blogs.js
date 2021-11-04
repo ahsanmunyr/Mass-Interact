@@ -15,7 +15,7 @@ import Link from 'next/link'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { faFacebook, faInstagram, faTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { faMapMarkerAlt, faPhoneAlt, faSearch, faUser, faCalendar, faTags,  } from "@fortawesome/free-solid-svg-icons";
+import { faMapMarkerAlt, faPhoneAlt, faSearch, faUser, faCalendar, faTags, faFolder } from "@fortawesome/free-solid-svg-icons";
 // import blogs from './../pages/Modal/blogs'
 import 'react-lazy-load-image-component/src/effects/blur.css';
 const APPURL = 'https://webprojectmockup.com/custom/mass_interact/public'
@@ -111,12 +111,14 @@ function BlogSection({array, array1}) {
                       <div className="seen-comments">
                          <span > <FontAwesomeIcon color="#f65c2a" style={{marginLeft: 5}} icon={faUser}></FontAwesomeIcon> {item.consultant}  </span>
                          <span > <FontAwesomeIcon color="#f65c2a" style={{marginLeft: 5}} icon={faCalendar}></FontAwesomeIcon> {item.date} </span>
-                         <span > <FontAwesomeIcon color="#f65c2a" style={{marginLeft: 5}} icon={faTags}></FontAwesomeIcon> 
-                        {JSON.parse(item.tags).reduce((acc,item)=>{
+                         <span > <FontAwesomeIcon color="#f65c2a" style={{marginLeft: 5}} icon={faFolder}></FontAwesomeIcon> {item.type} </span>
+                         {/* <span > <FontAwesomeIcon color="#f65c2a" style={{marginLeft: 5}} icon={faTags}></FontAwesomeIcon> 
+                        {  
+                           JSON.parse(item.tags).reduce((acc,item)=>{
                            acc=acc+item+", "
                            return acc
                         }," ")}
-                          </span>
+                          </span> */}
                       </div>
                    </div>
                 </div>
@@ -127,7 +129,7 @@ function BlogSection({array, array1}) {
                 </div>
                 <div data-aos="fade-right" className="button-blog">
                     <button> 
-                       <Link onClick={()=> window.scrollTo(0, 0)}
+                       <Link 
                        href="/details-blogs/[id]" as={`/details-blogs/${item.id}`}
                            >READ MORE</Link>
                     </button>

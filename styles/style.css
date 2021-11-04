@@ -3040,17 +3040,18 @@ p {
     border-radius: 5px;
     position: relative;
     transition: 0.5s ease-in-out;
+    text-decoration-line: none;
 }
 
 .tags-blogs a:hover {
     background-color: black;
 }
-
+/* 
 .tags-blogs a:before {
     content: '\f02b';
     font-family: 'FontAwesome';
     margin-right: 10px;
-}
+} */
 
 .prev-blog-post p {
     padding: 30px 0;
@@ -3215,7 +3216,7 @@ button.post-comment:hover:before {
     color: black;
 }
 
-.recent-archives ul li:before,
+/* .recent-archives ul li:before,
 .recent-posts ul li:before,
 .recent-categories ul li:before,
 .recent-meta ul li:before {
@@ -3236,7 +3237,7 @@ button.post-comment:hover:before {
 
 .recent-meta ul li:before {
     content: "\f0f6";
-}
+} */
 
 
 /* / MEga Menu  / */

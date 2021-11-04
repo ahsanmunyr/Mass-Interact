@@ -8,8 +8,8 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import ReCAPTCHA from "react-google-recaptcha";
 import 'react-toastify/dist/ReactToastify.css';
-import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import { Button, Modal, ModalBody, ModalFooter } from "reactstrap";
 
 function CareerForm() {
 
@@ -53,37 +53,36 @@ function CareerForm() {
   });
   const onSubmit =  (data) => {
    // setIsPopoverOpen(true)
-   const obj = {
-      firstName: data.fname , 
-      lastName: data.lname,
-      email: data.email,
-      number: value.value,
-      desiredPosition: data.DP,
-      file: file,
-      details: data.details
-    };
+   // const obj = {
+   //    firstName: data.fname , 
+   //    lastName: data.lname,
+   //    email: data.email,
+   //    number: value.value,
+   //    desiredPosition: data.DP,
+   //    file: file,
+   //    details: data.details
+   //  };
     var bodyFormData = new FormData();
 
-    bodyFormData.append('firstName', data.fname);
-    bodyFormData.append('lastName', data.lname);
+    bodyFormData.append('first_name', data.fname);
+    bodyFormData.append('last_name', data.lname);
     bodyFormData.append('email', data.email);
     bodyFormData.append('number', value.value);
-    bodyFormData.append('desiredPosition', data.DP);
-    bodyFormData.append('file', file);
-    bodyFormData.append('details', data.details);
+    bodyFormData.append('sales_executive', data.DP);
+    bodyFormData.append('resume_path', file);
+    bodyFormData.append('description', data.details);
 
-    console.log(obj)
+   //  console.log(obj)
 
-    var d = new Date();
-    var n = d.getTime();
+
  if(value.value &&  data.email && data.fname && data.DP && file){
 
  
-    if(token){
-      setIsPopoverOpen(true)
+    if(!token){
+      // setIsPopoverOpen(true)
       axios({
          method: "post",
-         url: `https://www.massinteract.com/send_email.php?ver=${n}`,
+         url: `https://webprojectmockup.com/custom/mass_interact/public/api/career_form`,
          data: bodyFormData,
          headers: { "Content-Type": "x-www-form-urlencoded" },
        })
@@ -92,6 +91,9 @@ function CareerForm() {
           console.log("Status: ", response.status);
           console.log("Data: ", response.data);
          //  setIsPopoverOpen(true)
+         if(response.data.success){
+            setIsPopoverOpen(true)
+            // alert("YES")
           onChangeMessage('Your submission has been received and we will contact you soon.')
           onChangeMessageTitle('Thank You')
           toast.success('Message sent successfully', {
@@ -103,43 +105,51 @@ function CareerForm() {
              draggable: true,
              progress: undefined,
              });
+            }
        }).catch(error => {
+         setIsPopoverOpen(true)
          onChangeMessage("Network Error")
          onChangeMessageTitle('ERROR, Please Try Again')
           // console.error('Something went wrong!', error);
-          toast.error('Something went wrong!', {
-             position: "top-right",
-             autoClose: 5000,
-             hideProgressBar: false,
-             closeOnClick: true,
-             pauseOnHover: true,
-             draggable: true,
-             progress: undefined,
-             });
+         //  toast.error('Something went wrong!', {
+         //     position: "top-right",
+         //     autoClose: 5000,
+         //     hideProgressBar: false,
+         //     closeOnClick: true,
+         //     pauseOnHover: true,
+         //     draggable: true,
+         //     progress: undefined,
+         //     });
             //  setIsPopoverOpen(false)
        });
     }
     else{
-       toast.error('Recaptcha Error', {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          });
+      setIsPopoverOpen(true)
+      onChangeMessage("Error")
+      onChangeMessageTitle('Recaptcha Error')
+      //  toast.error('Recaptcha Error', {
+      //     position: "top-right",
+      //     autoClose: 5000,
+      //     hideProgressBar: false,
+      //     closeOnClick: true,
+      //     pauseOnHover: true,
+      //     draggable: true,
+      //     progress: undefined,
+      //     });
     }
  }else{
-    toast.warning('Please fill out the following form.', {
-       position: "top-right",
-       autoClose: 5000,
-       hideProgressBar: false,
-       closeOnClick: true,
-       pauseOnHover: true,
-       draggable: true,
-       progress: undefined,
-       });
+   setIsPopoverOpen(true)
+   onChangeMessage("Warning")
+   onChangeMessageTitle('Please fill out the following form.')
+   //  toast.warning('Please fill out the following form.', {
+   //     position: "top-right",
+   //     autoClose: 5000,
+   //     hideProgressBar: false,
+   //     closeOnClick: true,
+   //     pauseOnHover: true,
+   //     draggable: true,
+   //     progress: undefined,
+   //     });
  }
 
    };
@@ -265,61 +275,43 @@ function CareerForm() {
                                  sitekey="6LdzjpocAAAAAI_h98i0kQihQYk9MZTSQK5bJTnI"
                               />
                               </div>
-                              <Popup
-                                  open={isPopoverOpen} closeOnDocumentClick onClose={closeModal}
-                                  
-                                    // modal
-                                    
-                                    // open={isPopoverOpen}
-                                    // defaultOpen={isPopoverOpen}
-                                    // className="pop-content"
-                                    //  contentStyle={contentStyle}
-                                     contentStyle={
-                                        {
-                                          position: 'relative',
-                                          margin: 'auto',
-                                          pointerEvents: 'auto',
-                                          maxWidth: '500px',
-                                          /* width: 90%; */
-                                          // height: '100px'
-                                          borderRadius: 10
-                                        }
-                                     }
-                                 >
-                                    {close => (
-                                       <div className="modalsss">
-                                        <a className="close" onClick={closeModal}>
-                                             &times;
-                                          </a>
-                                
-                                          <div id="pop-content">
-                                          {messageTitle}
-                                         <br/>
-                                         {message}
-                                          
-                                         
-                                       </div>
-                                       {/* <div className="actions">
-                                       
-                                          <button
-                                             className="button-modal"
-                                             onClick={() => {
-                                             console.log("modal closed ");
-                                             close();
-                                             }}
-                                          >
-                                             close modal
-                                          </button>
-                                       </div> */}
-                                       </div>
-                                       )}
-                                    </Popup>
+                           
                      </div>
                 </div>
                 </form>
              {/* </div> */}
           </div>
        </div>
+       <Modal
+            toggle={closeModal}
+            isOpen={isPopoverOpen}
+            className="modal-danger"
+            contentClassName="bg-gradient-danger"
+            >
+                   <div className=" modal-header">
+                     <h3 className=" modal-title" id="modal-title-notification">
+                        {messageTitle}
+                     </h3>
+                  </div>
+                  <div className=" modal-body">
+                     <div className=" py-3 text-center">
+                        <i className=" ni ni-bell-55 ni-3x"></i>                       
+                        <p>
+                           {message}
+                        </p>
+                     </div>
+                  </div>
+                  <div className="modal-footer">
+                     <Button
+                        className=" text-white ml-auto"
+                        // color="link"
+                        onClick={closeModal}
+                        type="button"
+                     >
+                        Close
+                     </Button>
+                     </div>
+                  </Modal>
     </div>
     <br/>
     {/* <br/> */}

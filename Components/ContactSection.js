@@ -7,7 +7,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import 'react-toastify/dist/ReactToastify.css';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-
+import { Button, Modal, ModalBody, ModalFooter } from "reactstrap";
 
 function ContactUsSection() {
    const [value, setValue] = useState(324234)
@@ -41,28 +41,28 @@ function ContactUsSection() {
       bodyFormData.append('name', data.name);
       bodyFormData.append('email', data.email);
       bodyFormData.append('number', value.value);
-      bodyFormData.append('business', data.business);
-      bodyFormData.append('address', data.address);
-      bodyFormData.append('details', data.details);
+      bodyFormData.append('business_name', data.business);
+      bodyFormData.append('location', data.address);
+      bodyFormData.append('description', data.details);
 
-      var d = new Date();
-      var n = d.getTime();
+      // var d = new Date();
+      // var n = d.getTime();
    if(value.value &&  data.email && data.name && data.details){
 
    
-      if(token){
-         setIsPopoverOpen(true)
+      if(!token){
+         // setIsPopoverOpen(true)
          // axios.post(`https://www.massinteract.com/send_email.php?ver=${n}`, obj)
          axios({
             method: "post",
-            url: `https://www.massinteract.com/send_email.php?ver=${n}`,
+            url: `https://webprojectmockup.com/custom/mass_interact/public/api/contact`,
             data: bodyFormData,
             headers: { "Content-Type": "x-www-form-urlencoded" },
           })
          .then(response => {
             console.log("Status: ", response.status);
             console.log("Data: ", response.data);
-            // setIsPopoverOpen(true)
+            setIsPopoverOpen(true)
             onChangeMessage('Your submission has been received and we will contact you soon.')
             onChangeMessageTitle('Thank You')
             toast.success('Message sent successfully', {
@@ -75,41 +75,48 @@ function ContactUsSection() {
                progress: undefined,
                });
          }).catch(error => {
+            setIsPopoverOpen(true)
             onChangeMessage("Network Error")
             onChangeMessageTitle('ERROR, Please Try Again')
             // console.error('Something went wrong!', error);
-            toast.error('Something went wrong!', {
-               position: "top-right",
-               autoClose: 5000,
-               hideProgressBar: false,
-               closeOnClick: true,
-               pauseOnHover: true,
-               draggable: true,
-               progress: undefined,
-               });
+            // toast.error('Something went wrong!', {
+            //    position: "top-right",
+            //    autoClose: 5000,
+            //    hideProgressBar: false,
+            //    closeOnClick: true,
+            //    pauseOnHover: true,
+            //    draggable: true,
+            //    progress: undefined,
+            //    });
                // setIsPopoverOpen(false)
          });
       }else{
-         toast.error('Recaptcha Error', {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            });
+         setIsPopoverOpen(true)
+         onChangeMessage("Error")
+         onChangeMessageTitle('Recaptcha Error')
+         // toast.error('Recaptcha Error', {
+         //    position: "top-right",
+         //    autoClose: 5000,
+         //    hideProgressBar: false,
+         //    closeOnClick: true,
+         //    pauseOnHover: true,
+         //    draggable: true,
+         //    progress: undefined,
+         //    });
       }
    }else{
-      toast.warning('Please fill out the following form.', {
-         position: "top-right",
-         autoClose: 5000,
-         hideProgressBar: false,
-         closeOnClick: true,
-         pauseOnHover: true,
-         draggable: true,
-         progress: undefined,
-         });
+      setIsPopoverOpen(true)
+      onChangeMessage("Warning")
+      onChangeMessageTitle('Please fill out the following form.')
+      // toast.warning('Please fill out the following form.', {
+      //    position: "top-right",
+      //    autoClose: 5000,
+      //    hideProgressBar: false,
+      //    closeOnClick: true,
+      //    pauseOnHover: true,
+      //    draggable: true,
+      //    progress: undefined,
+      //    });
    }
    };
    function recaptchaVal(value) {
@@ -202,7 +209,7 @@ function ContactUsSection() {
                                  sitekey="6LdzjpocAAAAAI_h98i0kQihQYk9MZTSQK5bJTnI"
                               />
                               </div>
-                              <Popup
+                              {/* <Popup
                                  open={isPopoverOpen} closeOnDocumentClick onClose={closeModal}
                                     contentStyle={
                                        {
@@ -226,12 +233,42 @@ function ContactUsSection() {
                                        </div>
                                        </div>
                                        )}
-                                    </Popup>
+                                    </Popup> */}
                               </div>
                            </div>
                   </form>
             </div>
       </div>
+      <Modal
+            toggle={closeModal}
+            isOpen={isPopoverOpen}
+            className="modal-danger"
+            contentClassName="bg-gradient-danger"
+            >
+                   <div className=" modal-header">
+                     <h3 className=" modal-title" id="modal-title-notification">
+                        {messageTitle}
+                     </h3>
+                  </div>
+                  <div className=" modal-body">
+                     <div className=" py-3 text-center">
+                        <i className=" ni ni-bell-55 ni-3x"></i>                       
+                        <p>
+                           {message}
+                        </p>
+                     </div>
+                  </div>
+                  <div className="modal-footer">
+                     <Button
+                        className=" text-white ml-auto"
+                        // color="link"
+                        onClick={closeModal}
+                        type="button"
+                     >
+                        Close
+                     </Button>
+                     </div>
+                  </Modal>
          </div>
      
       </section>

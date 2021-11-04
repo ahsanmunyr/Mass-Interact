@@ -4,8 +4,8 @@ import styles from '../styles/Home.module.css'
 import BlogSection from '../Components/Blogs'
 import Banner from '../Components/Banner'
 
-function Blogs({json,jsons}) {
- 
+function Blogs({json,lBlog}) {
+  // console.log("ASDA", lBlog)
   return (
     <div className={styles.container}>
       <Head>
@@ -15,7 +15,7 @@ function Blogs({json,jsons}) {
       </Head>
       <main>
         <Banner heading="Blog" />
-        <BlogSection array={json} array1={jsons}/>
+        <BlogSection array={json} array1={lBlog}/>
       </main>
 
     </div>
@@ -31,12 +31,12 @@ function Blogs({json,jsons}) {
 export async function getStaticProps () {
   const res = await fetch('https://webprojectmockup.com/custom/mass_interact/public/api/blog')
   const json = await res.json()
-  const ress = await fetch('https://webprojectmockup.com/custom/mass_interact/public/api/latest_blogs')
-  const jsons = await ress.json()
+  // const ress = await fetch('https://webprojectmockup.com/custom/mass_interact/public/api/latest_blogs')
+  // const jsons = await ress.json()
   // console.log(json)
   return {
     props: {
-      json,jsons
+      json
     },
   }
 }
