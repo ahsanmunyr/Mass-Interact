@@ -8,8 +8,15 @@ import AOS from 'aos';
 import Link from 'next/link'
 import Image from 'next/image'
 
-function AboutSection() {
+function AboutSection({About}) {
+    const [obj, onChangeObj] = useState({})
+
 useEffect(() => {
+    if(About.success){
+        // alert("SAD")
+        onChangeObj(About.data[0])
+    }
+    // onChangeObj()
     AOS.init({
         disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
         startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
@@ -58,19 +65,7 @@ return (
                         <hr/>
                         <h1>About <span> Mass <br/> Interact </span></h1>
                         <p>
-                            Mass Interact is a Google-trusted agency that creates virtual and interactive tours. We help you optimize, differentiate,
-                            and convey your business through an immersive, one-of-a-kind experience. We are committed to getting your business the
-                            highest exposure possible on the most visited website: Google. It is important for the success of a business to have a
-                            complete, professional, and cutting-edge online presence. Mass Interact
-                            creates 360 virtual tours that go beyond what other tours provide. 
-                        </p>
-                        <p>
-                            We believe in making your first impression so impressive that prospective customers can experience what makes your business special.
-                            Interactive features engage your target audience and bring your business to life. Plus, our virtual tours are used across the most
-                            crucial platforms - including Google Search, Google Maps, Google Pages, your website, Facebook and more. 
-                        </p>
-                        <p>
-                            Mass Interact helps you add an entirely new dimension to your business. Literally. 
+                           {obj.description}
                         </p>
                     </div>
                 </div>
@@ -90,7 +85,8 @@ return (
                             />
                             <h3>OUR MISSION</h3>
                             <p>
-                                Mass Interact’s mission is to give your business a professional and cutting-edge online presence. Through our technology, photography, and virtual tours, we aim to increase your SEO, Google Rankings, customer confidence, and viewer experience to unprecedented levels. 
+                            {obj.mission}
+                                {/* Mass Interact’s mission is to give your business a professional and cutting-edge online presence. Through our technology, photography, and virtual tours, we aim to increase your SEO, Google Rankings, customer confidence, and viewer experience to unprecedented levels.  */}
                             </p>
                         </div>
                     </div>
@@ -104,7 +100,8 @@ return (
                             />
                             <h3>OUR VISION</h3>
                             <p>
-                            We are an innovative 360 virtual tour company. Our vision is to help your business get the highest exposure possible across digital and social. Our goal is to provide unique and impactful experiences by creating virtual reality.
+                            {obj.vision}
+                            {/* We are an innovative 360 virtual tour company. Our vision is to help your business get the highest exposure possible across digital and social. Our goal is to provide unique and impactful experiences by creating virtual reality. */}
                             </p>
                         </div>
                     </div>

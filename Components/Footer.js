@@ -8,6 +8,7 @@ import ActiveLink from './ActiveLink';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock, faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import { faMapMarkerAlt, faPhoneAlt } from "@fortawesome/free-solid-svg-icons";
+import Link from 'next/link'
 function Footer() {
     const click = () => {
         window.scrollTo(0, 0)
@@ -38,27 +39,27 @@ return (
                                                     <p className="footer-custom">About Us</p>
                                                 </a>
                         </ActiveLink>
-                        <ActiveLink activeClassName="active" href="/">
+                        <ActiveLink activeClassName="active" href="/career">
                                                 <a style={{textDecorationLine:'none'}} onClick={click} className="nav__link" >
-                                                    <p className="footer-custom">Our Services</p>
+                                                    <p className="footer-custom">Careers</p>
                                                 </a>
                         </ActiveLink>
-                        <ActiveLink activeClassName="active" href="/">
+                        <ActiveLink activeClassName="active" href="/college-campus-virtual-tours">
                                                 <a style={{textDecorationLine:'none'}} onClick={click} className="nav__link" >
-                                                    <p className="footer-custom">Our Work</p>
+                                                    <p className="footer-custom">Campus Virtual Tour</p>
                                                 </a>
                         </ActiveLink>
-                        <ActiveLink activeClassName="active" href="/">
+                        <ActiveLink activeClassName="active" href="/contact">
                                                 <a style={{textDecorationLine:'none'}} onClick={click} className="nav__link" >
                                                     <p className="footer-custom">Contact</p>
                                                 </a>
                         </ActiveLink>
-                        <ActiveLink activeClassName="active" href="/">
+                        <ActiveLink activeClassName="active" href="/blog">
                                                 <a style={{textDecorationLine:'none'}} onClick={click} className="nav__link" >
                                                     <p className="footer-custom">Blogs</p>
                                                 </a>
                         </ActiveLink>
-                        <ActiveLink activeClassName="active" href="/">
+                        <ActiveLink activeClassName="active" href="/privacy-policy">
                                                 <a style={{textDecorationLine:'none'}} onClick={click} className="nav__link" >
                                                     <p className="footer-custom">Privacy Policy</p>
                                                 </a>

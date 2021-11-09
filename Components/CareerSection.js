@@ -4,7 +4,6 @@ import React , {useEffect, useState} from 'react'
 import Image from 'next/image'
 import ActiveLink from './ActiveLink';
 function CareerSection() {
-  
   useEffect(() => {
 
   },[]);
@@ -24,17 +23,17 @@ function CareerSection() {
               </div>
             </div>
             <Image
-            placeholder='blur'
-            src={image}
-            className="our-team"
-            width='3000'
-            alt='some value'
-            height='1500'
+              placeholder='blur'
+              src={image}
+              className="our-team"
+              width='3000'
+              alt='some value'
+              height='1500'
             />
             <div className="container4">
                 <div className="centered-button">
                     <ActiveLink activeClassName="active" href="/career">
-                            <a onClick={()=> window.scrollTo(0, 1500)}   style={{color: 'white'}}>Join Now </a>
+                            <a onClick={()=> window.scrollTo(0, 1500)}   style={{color: 'white'}}> Join Now </a>
                     </ActiveLink>
                 </div>
             </div>

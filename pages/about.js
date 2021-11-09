@@ -5,7 +5,8 @@ import AboutSection from '../Components/AboutSection'
 import Banner from '../Components/Banner'
 import Brands from '../Components/Brands'
 // our-domain.com/Home
-export default function About({brands}) {
+export default function About({brands, about}) {
+  // console.log(about)
   return (
     <div className={styles.container}>
       <Head>
@@ -14,12 +15,24 @@ export default function About({brands}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-          <Banner heading="About Us" />
-          <AboutSection/>
+          <Banner heading="About Us"/>
+          <AboutSection About={about} />
           <Brands data={brands} />
       </main>
     </div>
   )
 }
 
+export async function getStaticProps () {
+  const res = await fetch('https://webprojectmockup.com/custom/mass_interact/public/api/about')
+  const about = await res.json()
+  // const ress = await fetch('https://webprojectmockup.com/custom/mass_interact/public/api/latest_blogs')
+  // const jsons = await ress.json()
+  // console.log(json)
+  return {
+    props: {
+      about
+    },
+  }
+}
 

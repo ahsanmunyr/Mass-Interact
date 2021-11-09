@@ -330,7 +330,7 @@ function HomeSection() {
          </div>
       </section>
       <section className="sec-4-home" style={{zIndex: 1, backgroundColor: 'white', position:'relative', paddingTop: '80px'}} >
-         <div className="container" style={{zIndex: 1, backgroundColor: 'white', position:'relative'}}>
+         <div className="container" style={{ backgroundColor: 'white', position:'relative'}}>
             <div>
                <div className="engagement-home text-center">
                   <h1>DIGITAL SOLUTIONS THAT DRIVE ENGAGEMENT</h1>

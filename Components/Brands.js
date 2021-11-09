@@ -63,7 +63,7 @@ return (
                      <a href={item.url} rel="noopener noreferrer">
                         <div className="sponsors-clients">
                            {/* <img src={image16}/> */}
-                           <img height="100px" width="200px" src={'https://webprojectmockup.com/custom/mass_interact/public/'+item.image} />
+                           <img width="220px" src={'https://webprojectmockup.com/custom/mass_interact/public/'+item.image} />
                            {/* <Image src={image16} placeholder='blur' /> */}
                         </div>
                      </a>

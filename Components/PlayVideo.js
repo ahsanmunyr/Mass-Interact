@@ -21,7 +21,8 @@ function PlayVideo({heading}) {
                 top: 0
             }}
             className='ssss'
-            height='-webkit-fill-available'
+
+            height='none'
             width="100%"
             muted={true}
             loop={true}

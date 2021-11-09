@@ -1,20 +1,13 @@
 // import './../Styles/style.css';
-import image1 from './../Assets/blog/blog1.jpg'
-import image3 from './../Assets/blog/blog3.jpg'
-import image4 from './../Assets/blog/blog4.jpg'
-import image5 from './../Assets/blog/blog5.jpg'
-import image6 from './../Assets/blog/blog6.jpg'
-import Iframe from 'react-iframe'
 import React , {useEffect,useState} from 'react'
 import 'aos/dist/aos.css'; 
 import AOS from 'aos';
-import axios from 'axios'
 import Image from 'next/image'
 import Link from 'next/link'
-import Pagination from 'next-pagination'
+import { useRouter } from "next/router"
 // import ActiveLink from './ActiveLink';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useRouter } from "next/router"
+import axios from "axios";
 import { faFacebook, faInstagram, faTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faMapMarkerAlt, faPhoneAlt, faSearch, faUser, faCalendar, faFolderOpen, faFolder } from "@fortawesome/free-solid-svg-icons";
 // import blogs from './../pages/Modal/blogs'
@@ -23,17 +16,26 @@ const APPURL = 'https://webprojectmockup.com/custom/mass_interact/public'
 
 
 // https://webprojectmockup.com/custom/mass_interact/public/upload/blog_images/6177ccbc2e59e.png
-function BlogSection({array1,array2,array3}) {
+function Tags({ lBlog,Tag,Category}) {
    const [pageIndex, setPageIndex] = useState(1);
    const [apiCurrentPage, onChangeData] = useState({})
-
-
+    var router = useRouter()
+    const { id } = router.query
     const [filteredData,setFilteredData] = useState([]);
     const [filteredData1,setFilteredData1] = useState([]);
     const [filteredData2,setFilteredData2] = useState([]);
     const [filteredData3,setFilteredData3] = useState([]);
   
-
+    const handleSearch = (event) => {
+       let value = event.target.value
+       let result = [];
+       let x = array.data
+       result = x.filter((data) => {
+       return data.title.search(value) != -1 || data.consultant.search(value) != -1 || data.date.search(value) != -1  || data.description.search(value) != -1
+       });
+       console.log(result)
+       setFilteredData(result);
+    }
  
 //     consultant: "Justwords Consultants"
 // created_at: "2021-10-26T07:06:50.000000Z"
@@ -48,18 +50,29 @@ function BlogSection({array1,array2,array3}) {
 // updated_at: "2021-10-26T07:06:50.000000Z"
  
   useEffect(() => {
-   // if(array.success){
-   //    setFilteredData(array.data);
-   // }
-   if(array1.success){
-      setFilteredData1(array1.data);
+ 
+   if(lBlog.success){
+      setFilteredData1(lBlog.data);
    }
-   if(array2.success){
-      setFilteredData2(array2.data);
+   if(Tag.success){
+      setFilteredData2(Tag.data);
    }
-   if(array3.success){
-      setFilteredData3(array3.data);
+   if(Category.success){
+      setFilteredData3(Category.data);
    }
+   const func = () => axios.get(`https://webprojectmockup.com/custom/mass_interact/public/api/blog?tag=${id}`)
+   .then((response) => {
+      if(response.data.success){
+         // alert("SAD")
+         // alert(response.data.data.data)
+         onChangeData(response.data.data)
+         setFilteredData(response.data.data.data)
+      }
+   })
+    .catch((error)=>{
+        console.log(error);
+    });
+    func();
    // setFilteredData(array);
    AOS.init({
       disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
@@ -79,37 +92,7 @@ function BlogSection({array1,array2,array3}) {
       mirror: false, // whether elements should animate out while scrolling past them
       anchorPlacement: 'top-bottom', 
      });
-  },[]);
-
-  useEffect(()=>{
-   axios.get(`https://webprojectmockup.com/custom/mass_interact/public/api/blog?page=${pageIndex}`)
-   .then((response) => {
-      if(response.data.success){
-         // alert("SAD")
-         // alert(response.data.data.data[0].id)
-         onChangeData(response.data.data)
-         setFilteredData(response.data.data.data)
-      }
-   })
-   .catch((rrr)=> console.log(rrr))
- },[pageIndex])
-
-//  const pageChange = () => {
-//     console.log("SADSA")
-//     if(page)
-//     onChangePage()
-//  }
-
-const handleSearch = (event) => {
-   let value = event.target.value
-   let result = [];
-   result = filteredData.filter((data) => {
-   return data.title.search(value) != -1 || data.consultant.search(value) != -1 || data.date.search(value) != -1  || data.description.search(value) != -1
-   });
-   console.log(result)
-   setFilteredData(result);
-}
-
+  },[id]);
   return (
     <section>
     <div className="container">
@@ -162,7 +145,9 @@ const handleSearch = (event) => {
                 </div>
                 <div data-aos="fade-right" className="button-blog">
                     <button> 
-                       <Link href="/details-blogs/[id]" as={`/details-blogs/${item.id}`}>READ MORE</Link>
+                       <Link 
+                       href="/details-blogs/[id]" as={`/details-blogs/${item.id}`}
+                           >READ MORE</Link>
                     </button>
                 </div>
              </div>
@@ -257,24 +242,22 @@ const handleSearch = (event) => {
                      </div>
             </div>: null
             }
-             </div>
-               <div style={{width: '70%', flexDirection:'row', display:'flex', justifyContent:'end'}}>
-               
-                  <div data-aos="fade-right" className="button-blog">
-                  <button onClick={() => setPageIndex(pageIndex - 1)} disabled={pageIndex == 1 ? true : false}  >
-                    
-                     <Link href="" >Previous</Link> 
-                  </button>
-                  </div>
-
-                  <div data-aos="fade-right" className="button-blog">
-                  <button onClick={() => setPageIndex(pageIndex + 1)} disabled={pageIndex == apiCurrentPage.last_page ? true : false}><Link href=""  >Next</Link></button>
-               </div>
-            </div>
           </div>
-      
+          <div style={{width: '70%', flexDirection:'row', display:'flex', justifyContent:'end'}}>
+               
+               <div data-aos="fade-right" className="button-blog">
+               <button onClick={() => setPageIndex(pageIndex - 1)} disabled={pageIndex == 1 ? true : false}  >
+                 
+                  <Link href="#" >Previous</Link> 
+               </button>
+               </div>
+
+               <div data-aos="fade-right" className="button-blog">
+               <button onClick={() => setPageIndex(pageIndex + 1)} disabled={pageIndex == apiCurrentPage.last_page ? true : false}><Link href="#"  >Next</Link></button>
+            </div>
+         </div>
+       </div>
     </div>
-  
  </section>
    
   );
@@ -282,4 +265,4 @@ const handleSearch = (event) => {
 
 
 
-export default BlogSection;
+export default Tags;

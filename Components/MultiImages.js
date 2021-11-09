@@ -125,8 +125,8 @@ const MultiImages=()=>{
                           display: 'flex',
                           justifyContent: 'center'
                       }}>
-                    <Image alt='some value' className="frame img-home-3" data-scroll-zoom src={centre} />
-                    {/* <img className="frame img-home-3" data-scroll-zoom src={centre} /> */}
+                    {/* <Image alt='some value' className="frame img-home-3" data-scroll-zoom src={centre} /> */}
+                    <img className="frame img-home-3" data-scroll-zoom src='https://webprojectmockup.com/custom/mass_interact/public/assets/images/home-main.png' />
             </div>
       </div>
     </div>

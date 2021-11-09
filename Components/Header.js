@@ -26,12 +26,49 @@ import ActiveLink from './ActiveLink';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock, faEnvelope,  } from "@fortawesome/free-regular-svg-icons";
 import { faMapMarkerAlt, faBars } from "@fortawesome/free-solid-svg-icons";
+import axios from 'axios';
 function Header() {
     const [isOpen, setIsOpen] = useState(false);
+    const [CVT, OnChangeCVT] = useState([])
+    const [GTET, OnChangeGTET] = useState([])
+    const [HT, OnChangeHT] = useState([])
+    const [ourWork, OnChangeOurWork] = useState([])
+    // webprojectmockup.com/custom/mass_interact/public/api/our_work_types
+
 
 useEffect(() => {
-
+    const funcOurWork = () => axios.get(`https://webprojectmockup.com/custom/mass_interact/public/api/tours`)
+    .then((response) => {
+        if(response.data.success){
+            if(response.data.data.Hotels_Tour){
+                OnChangeHT(response.data.data.Hotels_Tour)
+            }
+            if(response.data.data.Golf_Tour_Events_Tour){
+                OnChangeGTET(response.data.data.Golf_Tour_Events_Tour)
+            }
+            if(response.data.data.Campus_Virtual_Tours){
+                OnChangeCVT(response.data.data.Campus_Virtual_Tours)
+            }
+        }
+    })
+    .catch((error)=>{
+        console.log(error);
+    });
+    const func = () => axios.get(`https://webprojectmockup.com/custom/mass_interact/public/api/our_work_types`)
+    .then((response) => {
+        if(response.data.success){
+            alert("SAD")
+            OnChangeOurWork(response.data.data)
+        }
+    })
+    .catch((error)=>{
+        console.log(error);
+    });
+    func();
+    funcOurWork();
     },[]);
+
+
 
 const click = () => {
     setIsOpen(true);
@@ -44,7 +81,6 @@ return(
     <Navbar sticky="top" expand="md" bg="white" className="navbar"  >
         <Link href="/">
                 <Image
-                 
                     src={image}
                     alt="Picture of the author"
                     width={140}
@@ -153,147 +189,195 @@ return(
                         <div className="col-xl-2 col-lg-3 px-1 categories-mega-link text-left">
                         <div className="categories-mega-link">
                         <h3>Our Work</h3>
-                        <ul>
+                        {
+                            ourWork.map((item, index)=>(
+                            <ul key={index}>
                                 <li id="hover_link">
-                                    <ActiveLink activeClassName="active nav__link" href="/education">
-                                                <a onClick={click} className="nav__link" >
-                                                    <p id="hover_link" className="p-0 m-0">Education</p>
-                                                </a>
-                                    </ActiveLink>
-                                </li>               
-                                <li id="hover_link" >
-                                <ActiveLink activeClassName="active nav__link" href="/hospitality">
-                                                <a onClick={click} className="nav__link" >
-                                                    <p id="hover_link" className="p-0 m-0">Hospitality</p>
-                                                </a>
-                                </ActiveLink>
-                                </li>
-                                <li id="hover_link" >
-                                <ActiveLink activeClassName="active nav__link" href="/auto">
-                                                <a onClick={click} className="nav__link" >
-                                                    <p id="hover_link" className="p-0 m-0">Auto</p>
-                                                </a>
-                                </ActiveLink>
-                                </li>
-                                <li id="hover_link" >
-                                <ActiveLink activeClassName="active nav__link" href="/cultural">
-                                                <a onClick={click} className="nav__link" >
-                                                    <p id="hover_link" className="p-0 m-0">Cultural</p>
-                                                </a>
-                                </ActiveLink>
-                                </li>
-                                <li id="hover_link" >
-                                <ActiveLink activeClassName="active nav__link" href="/health-and-wellness">
-                                                <a onClick={click} className="nav__link" >
-                                                    <p id="hover_link" className="p-0 m-0">Health And Wellness</p>
-                                                </a>
-                                </ActiveLink>
-                                </li>
-                                <li id="hover_link" >
-                                <ActiveLink activeClassName="active nav__link" href="/real-estate">
-                                                <a onClick={click} className="nav__link" >
-                                                    <p id="hover_link" className="p-0 m-0">Real Estate</p>
-                                                </a>
-                                </ActiveLink>
-                                </li>
-                                <li id="hover_link" >
-                                <ActiveLink activeClassName="active nav__link" href="/recreation">
-                                                <a onClick={click} className="nav__link" >
-                                                    <p id="hover_link" className="p-0 m-0">Recreation</p>
-                                                </a>
-                                </ActiveLink>
-                                </li>
-                                <li id="hover_link" >
-                                <ActiveLink activeClassName="active nav__link" href="/restaurant">
-                                                <a onClick={click} className="nav__link" >
-                                                    <p id="hover_link" className="p-0 m-0">Restaurant</p>
-                                                </a>
-                                </ActiveLink>
-                                </li>
-                                <li id="hover_link" >
-                                <ActiveLink activeClassName="active nav__link" href="/retail">
-                                                <a onClick={click} className="nav__link" >
-                                                    <p id="hover_link" className="p-0 m-0">Retail</p>
-                                                </a>
-                                </ActiveLink>
-                                </li>
+                                                        <Link href="/our-work/[name]/[id]" q as={`/our-work/${item.type}/${item.id}`} >
+                                                                    <a onClick={click} className="nav__link" >
+                                                                        <p id="hover_link" className="p-0 m-0">{item.type}</p>
+                                                                    </a>
+                                                        </Link>
+                                </li>   
                             </ul>
+                            ))
+                            // <ul>
+                            //     <li id="hover_link">
+                            //                             <ActiveLink activeClassName="active nav__link" href="/education">
+                            //                                         <a onClick={click} className="nav__link" >
+                            //                                             <p id="hover_link" className="p-0 m-0">Education</p>
+                            //                                         </a>
+                            //                             </ActiveLink>
+                            //     </li>   
+                            // </ul>
+                        }
+
+                        {/* // <ul>
+                        //         <li id="hover_link">
+                        //             <ActiveLink activeClassName="active nav__link" href="/education">
+                        //                         <a onClick={click} className="nav__link" >
+                        //                             <p id="hover_link" className="p-0 m-0">Education</p>
+                        //                         </a>
+                        //             </ActiveLink>
+                        //         </li>               
+                        //         <li id="hover_link" >
+                        //         <ActiveLink activeClassName="active nav__link" href="/hospitality">
+                        //                         <a onClick={click} className="nav__link" >
+                        //                             <p id="hover_link" className="p-0 m-0">Hospitality</p>
+                        //                         </a>
+                        //         </ActiveLink>
+                        //         </li>
+                        //         <li id="hover_link" >
+                        //         <ActiveLink activeClassName="active nav__link" href="/auto">
+                        //                         <a onClick={click} className="nav__link" >
+                        //                             <p id="hover_link" className="p-0 m-0">Auto</p>
+                        //                         </a>
+                        //         </ActiveLink>
+                        //         </li>
+                        //         <li id="hover_link" >
+                        //         <ActiveLink activeClassName="active nav__link" href="/cultural">
+                        //                         <a onClick={click} className="nav__link" >
+                        //                             <p id="hover_link" className="p-0 m-0">Cultural</p>
+                        //                         </a>
+                        //         </ActiveLink>
+                        //         </li>
+                        //         <li id="hover_link" >
+                        //         <ActiveLink activeClassName="active nav__link" href="/health-and-wellness">
+                        //                         <a onClick={click} className="nav__link" >
+                        //                             <p id="hover_link" className="p-0 m-0">Health And Wellness</p>
+                        //                         </a>
+                        //         </ActiveLink>
+                        //         </li>
+                        //         <li id="hover_link" >
+                        //         <ActiveLink activeClassName="active nav__link" href="/real-estate">
+                        //                         <a onClick={click} className="nav__link" >
+                        //                             <p id="hover_link" className="p-0 m-0">Real Estate</p>
+                        //                         </a>
+                        //         </ActiveLink>
+                        //         </li>
+                        //         <li id="hover_link" >
+                        //         <ActiveLink activeClassName="active nav__link" href="/recreation">
+                        //                         <a onClick={click} className="nav__link" >
+                        //                             <p id="hover_link" className="p-0 m-0">Recreation</p>
+                        //                         </a>
+                        //         </ActiveLink>
+                        //         </li>
+                        //         <li id="hover_link" >
+                        //         <ActiveLink activeClassName="active nav__link" href="/restaurant">
+                        //                         <a onClick={click} className="nav__link" >
+                        //                             <p id="hover_link" className="p-0 m-0">Restaurant</p>
+                        //                         </a>
+                        //         </ActiveLink>
+                        //         </li>
+                        //         <li id="hover_link" >
+                        //         <ActiveLink activeClassName="active nav__link" href="/retail">
+                        //                         <a onClick={click} className="nav__link" >
+                        //                             <p id="hover_link" className="p-0 m-0">Retail</p>
+                        //                         </a>
+                        //         </ActiveLink>
+                        //         </li>
+                        //     </ul> */}
                         </div>
                         </div>
                         <div className="col-xl-5 col-lg-4 px-1 categories-mega-link text-center">
+
                             <h3 className="text-center">Custom Tours</h3>
+
+
                             <div className="row">
-                                    <div className="col-lg-6 col-xl-6 px-0 for-headings-custom-tours">
+                                    <div className="col-lg-12 col-xl-12 px-0 for-headings-custom-tours">
                                         <div style={{display: 'flex'}}>
                                             <h6>Campus Virtual Tours</h6>
                                         </div>
-                                        <div className="col-xl-12 col-lg-12 col-md-12 px-1">
-                                            <div className="for-flexing">
-                                                <a href="https://www.massinteract.com/marietta-college/" rel="noopener noreferrer">
-                                                    <div className="img-size-mega-menu">
-                                                          <Image alt='some value' className="next-image" placeholder='blur' src={MS}/>
+                                    { CVT ?
+                                        <div className="row">
+                                            {
+                                                CVT.map((item, index)=>(
+                                                    <div key={index} className="col-lg-6 col-md-12 px-1">
+                                                        <div className="for-flexing">
+                                                            <a href={item.redirect_link} rel="noopener noreferrer">
+                                                                <div className="img-size-mega-menu">
+                                                                    <img  alt='some value' src={'https://webprojectmockup.com/custom/mass_interact/public/'+item.image} />
+                                                                    {/* <Image alt='some value' className="next-image" placeholder='blur' src={MS}/> */}
+                                                                </div>
+                                                                <div className="text-mega-menu-links">
+                                                                    <p>{item.title}</p>
+                                                                </div>
+                                                            </a>
+                                                        </div>
                                                     </div>
-                                                    <div className="text-mega-menu-links">
-                                                        <p>Marietta College </p>
-                                                    </div>
-                                                </a>
+                                                ))
+                                            }
+                                        </div>:
+                                        <div className="row">
+                                            
+                                            <div className="col-lg-6 col-md-12 px-1">
+                                                <div className="for-flexing">
+                                                    <a href="https://www.massinteract.com/marietta-college/" rel="noopener noreferrer">
+                                                        <div className="img-size-mega-menu">
+                                                            <Image alt='some value' className="next-image" placeholder='blur' src={MS}/>
+                                                        </div>
+                                                        <div className="text-mega-menu-links">
+                                                            <p>Marietta College </p>
+                                                        </div>
+                                                    </a>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div className="col-xl-12 col-lg-12 col-md-12 px-1">
-                                            <div className="for-flexing">
-                                                <a href="https://massinteract.com/cambridge-college/" rel="noopener noreferrer">
-                                                    <div className="img-size-mega-menu">
-                                                        <Image alt='some value' className="next-image" placeholder='blur' src={CC}/>
-                                                   
-                                                    </div>
-                                                    <div className="text-mega-menu-links">
-                                                        <p>Cambridge College</p>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div className="col-xl-12 col-lg-12 col-md-12 px-1">
-                                            <div className="for-flexing">
-                                                <a href="https://www.massinteract.com/nw-mississippi-college/" rel="noopener noreferrer">
-                                                    <div className="img-size-mega-menu">
-                                                    <Image alt='some value' className="next-image" placeholder='blur' src={NW}/>
+                                            <div className="col-lg-6 col-md-12 px-1">
+                                                <div className="for-flexing">
+                                                    <a href="https://massinteract.com/cambridge-college/" rel="noopener noreferrer">
+                                                        <div className="img-size-mega-menu">
+                                                            <Image alt='some value' className="next-image" placeholder='blur' src={CC}/>
                                                     
-                                                    </div>
-                                                    <div className="text-mega-menu-links">
-                                                        <p>NW Mississippi College</p>
-                                                    </div>
-                                                </a>
+                                                        </div>
+                                                        <div className="text-mega-menu-links">
+                                                            <p>Cambridge College</p>
+                                                        </div>
+                                                    </a>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div className="col-xl-12 col-lg-12 col-md-12 px-1">
-                                            <div className="for-flexing">
-                                                <a href="https://massinteract.com/covenant-college/" rel="noopener noreferrer">
-                                                    <div className="img-size-mega-menu">
-                                                    <Image alt='some value' className="next-image" placeholder='blur' src={CCL}/>
-                                                
-                                                    </div>
-                                                    <div className="text-mega-menu-links">
-                                                        <p>Covenant College</p>
-                                                    </div>
-                                                </a>
+                                            <div className="col-lg-6 col-md-12 px-1">
+                                                <div className="for-flexing">
+                                                    <a href="https://www.massinteract.com/nw-mississippi-college/" rel="noopener noreferrer">
+                                                        <div className="img-size-mega-menu">
+                                                        <Image alt='some value' className="next-image" placeholder='blur' src={NW}/>
+                                                        
+                                                        </div>
+                                                        <div className="text-mega-menu-links">
+                                                            <p>NW Mississippi College</p>
+                                                        </div>
+                                                    </a>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div className="col-xl-12 col-lg-12 col-md-12 px-1">
-                                            <div className="for-flexing">
-                                                <a href="https://massinteract.com/westminster-college/" rel="noopener noreferrer">
-                                                    <div className="img-size-mega-menu">
-                                                        <Image alt='some value' className="next-image" placeholder='blur' src={NWWC}/>
-                                                    </div>
-                                                    <div className="text-mega-menu-links">
-                                                        <p>Westminster College</p>
-                                                    </div>
-                                                </a>
+                                            <div className="col-lg-6 col-md-12 px-1">
+                                                <div className="for-flexing">
+                                                    <a href="https://massinteract.com/covenant-college/" rel="noopener noreferrer">
+                                                        <div className="img-size-mega-menu">
+                                                        <Image alt='some value' className="next-image" placeholder='blur' src={CCL}/>
+                                                    
+                                                        </div>
+                                                        <div className="text-mega-menu-links">
+                                                            <p>Covenant College</p>
+                                                        </div>
+                                                    </a>
+                                                </div>
                                             </div>
-                                        </div>    
-                                    </div>
-                                    <div className="col-lg-6 col-xl-6 px-0 for-headings-custom-tours">
-                                        <h6><br/></h6>
-                                        <div className="col-xl-12 col-lg-12 col-md-12 px-1">
+                                            <div className="col-lg-6 col-md-12 px-1">
+                                                <div className="for-flexing">
+                                                    <a href="https://massinteract.com/westminster-college/" rel="noopener noreferrer">
+                                                        <div className="img-size-mega-menu">
+                                                            <Image alt='some value' className="next-image" placeholder='blur' src={NWWC}/>
+                                                        </div>
+                                                        <div className="text-mega-menu-links">
+                                                            <p>Westminster College</p>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>    
+                                            {/* </div> */}
+                                            {/* <div className="col-lg-6 col-xl-6 px-0 for-headings-custom-tours"> */}
+                                            {/* <h6><br/></h6> */}
+                                            <div className="col-lg-6 col-md-12 px-1">
                                             <div className="for-flexing">
                                                 <a href="https://massinteract.com/west-liberty-university/" rel="noopener noreferrer">
                                                     <div className="img-size-mega-menu">
@@ -305,7 +389,7 @@ return(
                                                 </a>
                                                 </div>
                                             </div>
-                                            <div className="col-xl-12 col-lg-12 col-md-12 px-1">
+                                            <div className="col-lg-6 col-md-12 px-1">
                                                 <div className="for-flexing">
                                                 <a href="https://s3.amazonaws.com/vtvt/VTTOUR.html" rel="noopener noreferrer">
                                                     <div className="img-size-mega-menu">
@@ -317,7 +401,7 @@ return(
                                                 </a>
                                                 </div>
                                             </div>
-                                            <div className="col-xl-12 col-lg-12 col-md-12 px-1">
+                                            <div className="col-lg-6 col-md-12 px-1">
                                                 <div className="for-flexing">
                                                 <a href="https://tourmkr.com/F1WZkO2CpT/7971185p&99.48h&99.03t" rel="noopener noreferrer">
                                                     <div className="img-size-mega-menu">
@@ -329,7 +413,7 @@ return(
                                                 </a>
                                                 </div>
                                             </div>
-                                            <div className="col-xl-12 col-lg-12 col-md-12 px-1">
+                                            <div className="col-lg-6 col-md-12 px-1">
                                             <div className="for-flexing">
                                                 <a href="https://www.massinteract.com/worcester-state-university/" rel="noopener noreferrer">
                                                     <div className="img-size-mega-menu">
@@ -341,7 +425,7 @@ return(
                                                 </a>
                                                 </div>
                                             </div>
-                                            <div className="col-xl-12 col-lg-12 col-md-12 px-1">
+                                            <div className="col-lg-6 col-md-12 px-1">
                                                 <div className="for-flexing">
                                                 <a href="https://tourmkr.com/F1webstervienna/10083034p&316.59h&98.03t" rel="noopener noreferrer">
                                                     <div className="img-size-mega-menu">
@@ -353,6 +437,8 @@ return(
                                                 </a>
                                                 </div>
                                             </div>
+                                        </div>
+                                    }
                                     </div>  
                             </div>
                         </div>
@@ -363,8 +449,29 @@ return(
                                     <div className="col-lg-12 col-xl-12 px-0 for-headings-custom-tours" style={{textAlign:'left'}}>
                                             <div style={{display: 'flex'}}>
                                                 <h6>Golf Tour & Events Tour</h6>
-                                            </div>                                               
-                                            <div className="col-xl-12 col-lg-12 col-md-12 px-1">
+                                            </div> 
+                                            {
+                                                GTET ?
+                                        
+                                            <>           
+                                            {
+                                                GTET.map((item,index)=>(
+                                                    <div key={index} className="col-xl-12 col-lg-12 col-md-12 px-1">
+                                                        <div className="for-flexing">
+                                                        <a href={item.redirect_link} rel="noopener noreferrer">
+                                                        <div className="img-size-mega-menu">
+                                                                {/* <Image alt='some value' className="next-image" placeholder='blur' src={NCAA}/> */}
+                                                                <img  alt='some value' src={'https://webprojectmockup.com/custom/mass_interact/public/'+item.image} />
+                                                                </div>
+                                                                <div className="text-mega-menu-links">
+                                                                    <p>{item.title}</p>
+                                                                </div>
+                                                        </a>
+                                                        </div>
+                                                    </div>
+                                                ))
+                                            }                                  
+                                            {/* <div className="col-xl-12 col-lg-12 col-md-12 px-1">
                                                 <div className="for-flexing">
                                                 <a href="https://tourmkr.com/F1CF4FoiCh/9488211p&11.08h&81.61t" rel="noopener noreferrer">
                                                 <div className="img-size-mega-menu">
@@ -387,11 +494,33 @@ return(
                                                         </div>
                                                     </a>
                                                 </div>
-                                            </div>
-                                                
+                                            </div> */}
+                                            </>: null
+                                        }
                                     </div>
                                     <div className="col-lg-12 col-xl-12 px-0 for-headings-custom-tours" style={{textAlign:'left'}}>
-                                        <h6>Hotels Tour</h6>                       
+                                        <h6>Hotels Tour</h6>    
+
+                                        {
+                                            HT ?
+                                            <>
+                                               {
+                                                    HT.map((item, index)=>(
+                                                        <div key={index} className="col-xl-12 col-lg-12 col-md-12 px-1">
+                                                            <div className="for-flexing">
+                                                                <a href={item.redirect_link} rel="noopener noreferrer">
+                                                                    <div className="img-size-mega-menu">
+                                                                       <img  alt='some value' src={'https://webprojectmockup.com/custom/mass_interact/public/'+item.image} />
+                                                                    </div>
+                                                                    <div className="text-mega-menu-links">
+                                                                        <p>{item.title}</p>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        ))
+                                               }
+                                            </>:
                                             <div className="col-xl-12 col-lg-12 col-md-12 px-1">
                                                 <div className="for-flexing">
                                                     <a href="https://massinteract.com/the-phoenician-resort/" rel="noopener noreferrer">
@@ -404,6 +533,8 @@ return(
                                                     </a>
                                                 </div>
                                             </div>
+
+                                        }         
                                     </div>
                                 </div>
                             </div>

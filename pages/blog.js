@@ -4,7 +4,7 @@ import styles from '../styles/Home.module.css'
 import BlogSection from '../Components/Blogs'
 import Banner from '../Components/Banner'
 
-function Blogs({json,lBlog}) {
+function Blogs({lBlog, Tag, Category}) {
   // console.log("ASDA", lBlog)
   return (
     <div className={styles.container}>
@@ -15,7 +15,7 @@ function Blogs({json,lBlog}) {
       </Head>
       <main>
         <Banner heading="Blog" />
-        <BlogSection array={json} array1={lBlog}/>
+        <BlogSection  array1={lBlog} array2={Tag} array3={Category} />
       </main>
 
     </div>
@@ -28,18 +28,18 @@ function Blogs({json,lBlog}) {
 //   return { data: json.data }
 // }
 
-export async function getStaticProps () {
-  const res = await fetch('https://webprojectmockup.com/custom/mass_interact/public/api/blog')
-  const json = await res.json()
-  // const ress = await fetch('https://webprojectmockup.com/custom/mass_interact/public/api/latest_blogs')
-  // const jsons = await ress.json()
-  // console.log(json)
-  return {
-    props: {
-      json
-    },
-  }
-}
+// export async function getStaticProps () {
+//   const res = await fetch('https://webprojectmockup.com/custom/mass_interact/public/api/blog')
+//   const json = await res.json()
+//   // const ress = await fetch('https://webprojectmockup.com/custom/mass_interact/public/api/latest_blogs')
+//   // const jsons = await ress.json()
+//   // console.log(json)
+//   return {
+//     props: {
+//       json
+//     },
+//   }
+// }
 export default Blogs;
 // export async function getStaticPropss () {
 //   const res = await fetch('webprojectmockup.com/custom/mass_interact/public/api/latest_blogs')

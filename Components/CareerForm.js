@@ -17,10 +17,10 @@ function CareerForm() {
    const [isPopoverOpen, setIsPopoverOpen] = useState(false)
    const closeModal = () => setIsPopoverOpen(false);
    const [token, onChangeToken] = useState(null)
-   const [file, onChangeFile] = useState(null)
+   // const [file, onChangeFile] = useState(null)
    const [message, onChangeMessage] = useState('Loading...')
    const [messageTitle, onChangeMessageTitle] = useState('')
-   
+   const [file, onChangeFile] = useState(null)
    const [fileName, onChangeFileName] = useState('Attach Resume')
    const { register, handleSubmit, watch, formState: { errors } } = useForm();
    const options = [
