@@ -10,33 +10,46 @@ import Image from "next/image"
 import "nprogress/nprogress.css";
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useState } from 'react'
-import Router from "next/router";
+import { useRouter } from "next/router";
 import "@fortawesome/fontawesome-svg-core/styles.css"; // import Font Awesome CSS
 import { config } from "@fortawesome/fontawesome-svg-core";
-import PreLoader from './../Assets/preloader.gif'
+// import PreLoader from './../Assets/preloader.gif'
 import 'next-pagination/dist/index.css'
+import PreLoader from './../Assets/preloader.gif'
+// import Loading from './Loading'
 
 config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatically since it's being imported above
 
 
 
 
-
+const delay = 1;
 function MyApp({ Component, pageProps, data, testimonial, latestBlogs,tags,categories }) {
   // console.log(latestBlogs)
   const [isLoading, setIsLoading] = useState(false);
+  const Router = useRouter();
+  const [show, setShow] = useState(false);
+  // useEffect(() => {
+  //   const updateLoadingStatus = () => setIsLoading(!isLoading);
 
-  useEffect(() => {
-    const updateLoadingStatus = () => setIsLoading(!isLoading);
+  //   Router.events.on("routeChangeStart", updateLoadingStatus);
+  //   Router.events.on("routeChangeComplete", updateLoadingStatus);
 
-    Router.events.on("routeChangeStart", updateLoadingStatus);
-    Router.events.on("routeChangeComplete", updateLoadingStatus);
+  //   return () => {
+  //     Router.events.off("routeChangeStart", updateLoadingStatus);
+  //     Router.events.off("routeChangeComplete", updateLoadingStatus);
+  //   };
+  // }, [isLoading]);
+  // useEffect(() => {
+  //   const handleStart = (url) => {
+  //     url !== Router.pathname ? setIsLoading(true) : setIsLoading(false);
+  //   };
+  //   const handleComplete = (url) => setIsLoading(false);
 
-    return () => {
-      Router.events.off("routeChangeStart", updateLoadingStatus);
-      Router.events.off("routeChangeComplete", updateLoadingStatus);
-    };
-  }, [isLoading]);
+  //   Router.events.on("routeChangeStart", handleStart);
+  //   Router.events.on("routeChangeComplete", handleComplete);
+  //   Router.events.on("routeChangeError", handleComplete);
+  // }, [Router]);
 
   // useEffect(() => {
   //   const handleRouteChangeError = (err, url) => {
@@ -54,6 +67,28 @@ function MyApp({ Component, pageProps, data, testimonial, latestBlogs,tags,categ
   //   }
   // }, [])
 
+  useEffect(
+    () => {
+      let timer1 = setTimeout(() => setShow(true), delay * 380);
+
+      // this will clear Timeout
+      // when component unmount like in willComponentUnmount
+      // and show will not change to true
+      return () => {
+        clearTimeout(timer1);
+      };
+    },
+    // useEffect will run only one time with empty []
+    // if you pass a value to array,
+    // like this - [data]
+    // than clearTimeout will run every time
+    // this value changes (useEffect re-run)
+    // "homepage": "https://www.massinteract.com/",
+    // "homepage": "https://webprojectmockup.com/mass/",
+    []
+  );
+
+
 
   return      <> 
                     <Head>
@@ -65,9 +100,16 @@ function MyApp({ Component, pageProps, data, testimonial, latestBlogs,tags,categ
                               crossOrigin="anonymous" 
                             />
                     </Head>
-                    <Header/>
-                    <Component brands={data} test={testimonial} lBlog={latestBlogs} Tag={tags} Category={categories} {...pageProps} />
-                    <Footer/>
+                    {
+                      !show ?
+                      <div style={{ display:'flex', justifyContent:'center', marginTop: 300}}><Image  src={PreLoader} /></div>
+                      :
+                      <>
+                      <Header/>
+                      <Component brands={data} test={testimonial} lBlog={latestBlogs} Tag={tags} Category={categories} {...pageProps} />
+                      <Footer/>
+                      </>
+                    }
               </>
 }
 

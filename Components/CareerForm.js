@@ -93,7 +93,7 @@ function CareerForm() {
          //  setIsPopoverOpen(true)
          if(response.data.success){
             setIsPopoverOpen(true)
-            // alert("YES")
+            //  a("YES")
           onChangeMessage('Your submission has been received and we will contact you soon.')
           onChangeMessageTitle('Thank You')
           toast.success('Message sent successfully', {

@@ -13,7 +13,7 @@ function AboutSection({About}) {
 
 useEffect(() => {
     if(About.success){
-        // alert("SAD")
+        //  a
         onChangeObj(About.data[0])
     }
     // onChangeObj()

@@ -10,17 +10,17 @@ import OurWorkSection from '../../../Components/OurWorkSection'
 // our-domain.com/Home
 export default function DynamicComponent({test}) {
   const [array, onChangeArray] = useState([])
-  // alert("SADSADSADSAD")
+  //  a("SADSADSADSAD")
   var router = useRouter()
   const { id,name } = router.query
   useEffect(() => {
     axios.get(`https://webprojectmockup.com/custom/mass_interact/public/api/our_work/${id}`)
     .then((response) => {
-     // alert(Id, "AHSAN")
+     //  a(Id, "AHSAN")
        if(response.data.success){
         console.log(response.data.data, "GGG")
         onChangeArray(response.data.data)
-        // alert(response.data.data)
+        //  a(response.data.data)
        }
     
     })

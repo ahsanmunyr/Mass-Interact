@@ -6,17 +6,17 @@ import Iframe from 'react-iframe'
 import axios from 'axios'
 
 function OurWorkSection({data}) {
-   // alert(data)
+   //  a(data)
    //  const [array, onChangeArray] = useState([])
     
       // useEffect(() => {
       //   axios.get(`https://webprojectmockup.com/custom/mass_interact/public/api/our_work/${Id}`)
       //   .then((response) => {
-      //    // alert(Id, "AHSAN")
+      //    //  a(Id, "AHSAN")
       //      if(response.data.success){
       //       console.log(response.data.data, "GGG")
       //       // onChangeArray(response.data.data)
-      //       // alert(response.data.data)
+      //       //  a(response.data.data)
       //      }
         
       //   })

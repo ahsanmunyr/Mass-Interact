@@ -36,18 +36,18 @@ const { register, handleSubmit, watch, formState: { errors }, reset } = useForm(
 
 useEffect(() => {
    if(Category.success){
-      // alert("SAD")
+      //  a
       setCategories(Category.data)
    }
       setblogID(id)
       const func = () => axios.get(`https://webprojectmockup.com/custom/mass_interact/public/api/get_blog?id=${id}`)
             .then((response) => {
                if(response.data.success){
-                  // alert(response.data.data)
+                  //  a(response.data.data)
                 
-                     // alert("AD")
+                     //  a("AD")
                      if(response.data.data.details){
-                        // alert("AD")
+                        //  a("AD")
                         setdataChange(response.data.data.details[0])
                          setTags(response.data.data.tags)
                      }

@@ -57,7 +57,7 @@ useEffect(() => {
     const func = () => axios.get(`https://webprojectmockup.com/custom/mass_interact/public/api/our_work_types`)
     .then((response) => {
         if(response.data.success){
-            alert("SAD")
+            //  a
             OnChangeOurWork(response.data.data)
         }
     })

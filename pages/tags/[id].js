@@ -63,8 +63,8 @@ function Tags({ lBlog,Tag,Category}) {
    const func = () => axios.get(`https://webprojectmockup.com/custom/mass_interact/public/api/blog?tag=${id}`)
    .then((response) => {
       if(response.data.success){
-         // alert("SAD")
-         // alert(response.data.data.data)
+         //  a
+         //  a(response.data.data.data)
          onChangeData(response.data.data)
          setFilteredData(response.data.data.data)
       }

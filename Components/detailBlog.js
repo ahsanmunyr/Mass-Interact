@@ -126,11 +126,11 @@
        
 //         var blogData = []
 //         for(var i = 0; i < filteredData.length; i++ ){
-//             // alert("ASD")
+//             //  a("ASD")
 //            var obj = filteredData[i];
 //            if(obj.id == id ){
 //             //   console.log('Chal gaya')
-//             //   alert(id)
+//             //    a(id)
 //               blogData.push(obj)
 //            }else{
 //               setFilteredData("No Data Found")

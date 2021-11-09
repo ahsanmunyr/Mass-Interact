@@ -85,8 +85,8 @@ function BlogSection({array1,array2,array3}) {
    axios.get(`https://webprojectmockup.com/custom/mass_interact/public/api/blog?page=${pageIndex}`)
    .then((response) => {
       if(response.data.success){
-         // alert("SAD")
-         // alert(response.data.data.data[0].id)
+         //  a
+         //  a(response.data.data.data[0].id)
          onChangeData(response.data.data)
          setFilteredData(response.data.data.data)
       }
