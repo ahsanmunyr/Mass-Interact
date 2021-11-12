@@ -30,13 +30,13 @@ function CareerSection() {
               alt='some value'
               height='1500'
             />
-            <div className="container4">
+            {/* <div className="container4">
                 <div className="centered-button">
                     <ActiveLink activeClassName="active" href="/career">
                             <a onClick={()=> window.scrollTo(0, 1500)}   style={{color: 'white'}}> Join Now </a>
                     </ActiveLink>
                 </div>
-            </div>
+            </div> */}
         </div>
     </section>
   );

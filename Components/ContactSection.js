@@ -16,7 +16,7 @@ function ContactUsSection() {
    const [token, onChangeToken] = useState(null)
    const [message, onChangeMessage] = useState('Loading...')
    const [messageTitle, onChangeMessageTitle] = useState('')
-   const { register, handleSubmit, watch, formState: { errors } } = useForm();
+   const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
 
   useEffect(() => {
 
@@ -53,6 +53,7 @@ function ContactUsSection() {
       if(!token){
          // setIsPopoverOpen(true)
          // axios.post(`https://www.massinteract.com/send_email.php?ver=${n}`, obj)
+         reset()
          axios({
             method: "post",
             url: `https://webprojectmockup.com/custom/mass_interact/public/api/contact`,

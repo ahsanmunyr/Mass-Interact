@@ -5,7 +5,7 @@ import CareerSection from '../Components/CareerSection'
 import CareerForm from '../Components/CareerForm'
 import Banner from '../Components/Banner'
 // our-domain.com/Home
-export default function Career() {
+export default function Career({json}) {
   return (
     <div className={styles.container}>
       <Head>
@@ -15,10 +15,20 @@ export default function Career() {
       </Head>
       <main>
         <Banner heading="Career" />
-        <CareerSection />
-        <CareerForm />
+        <CareerSection  />
+        <CareerForm data={json} />
       </main>
    
     </div>
   )
+}
+
+export async function getStaticProps () {
+  const res = await fetch('https://webprojectmockup.com/custom/mass_interact/public/api/career_openings')
+  const json = await res.json()
+  return {
+    props: {
+      json
+    },
+  }
 }

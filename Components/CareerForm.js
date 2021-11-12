@@ -11,18 +11,18 @@ import 'react-toastify/dist/ReactToastify.css';
 import 'reactjs-popup/dist/index.css';
 import { Button, Modal, ModalBody, ModalFooter } from "reactstrap";
 
-function CareerForm() {
+function CareerForm({data}) {
 
    const [value, setValue] = useState(324234)
    const [isPopoverOpen, setIsPopoverOpen] = useState(false)
    const closeModal = () => setIsPopoverOpen(false);
    const [token, onChangeToken] = useState(null)
-   // const [file, onChangeFile] = useState(null)
+   const [category, onChangeCategory] = useState([])
    const [message, onChangeMessage] = useState('Loading...')
    const [messageTitle, onChangeMessageTitle] = useState('')
    const [file, onChangeFile] = useState(null)
    const [fileName, onChangeFileName] = useState('Attach Resume')
-   const { register, handleSubmit, watch, formState: { errors } } = useForm();
+   const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
    const options = [
       { value: 'Sales Executive', label: 'Sales Executive' },
       { value: 'Tour Specialist', label: 'Tour Specialis' },
@@ -32,36 +32,41 @@ function CareerForm() {
     ]
 
   useEffect(() => {
+   // axios.get(`https://webprojectmockup.com/custom/mass_interact/public/api/career_openings`)
+   // .then((response) => {
+   //    if(response.data.success){
+   //       onChangeCategory(response.data.data)
+   //    }
+   // })
+   // .catch((rrr)=> console.log(rrr))
+   if(data.success){
+      onChangeCategory(data.data);
+   }
    AOS.init({
-      disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-      startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
-      initClassName: 'aos-init', // class applied after initialization
-      animatedClassName: 'aos-animate', // class applied on animation
-      useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
-      disableMutationObserver: false, // disables automatic mutations' detections (advanced)
-      debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
-      throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
-      // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-      offset: 120, // offset (in px) from the original trigger point
-      delay: 100, // values from 0 to 3000, with step 50ms
-      duration: 300, // values from 0 to 3000, with step 50ms
-      easing: 'ease', // default easing for AOS animations
-      once: false, // whether animation should happen only once - while scrolling down
-      mirror: false, // whether elements should animate out while scrolling past them
-      anchorPlacement: 'top-bottom', 
-     });
-  });
-  const onSubmit =  (data) => {
-   // setIsPopoverOpen(true)
-   // const obj = {
-   //    firstName: data.fname , 
-   //    lastName: data.lname,
-   //    email: data.email,
-   //    number: value.value,
-   //    desiredPosition: data.DP,
-   //    file: file,
-   //    details: data.details
-   //  };
+         disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+         startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+         initClassName: 'aos-init', // class applied after initialization
+         animatedClassName: 'aos-animate', // class applied on animation
+         useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+         disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+         debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+         throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+         // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+         offset: 120, // offset (in px) from the original trigger point
+         delay: 100, // values from 0 to 3000, with step 50ms
+         duration: 300, // values from 0 to 3000, with step 50ms
+         easing: 'ease', // default easing for AOS animations
+         once: false, // whether animation should happen only once - while scrolling down
+         mirror: false, // whether elements should animate out while scrolling past them
+         anchorPlacement: 'top-bottom', 
+      });
+});
+//   webprojectmockup.com/custom/mass_interact/public/api/career_openings
+
+
+const onSubmit =  (data) => {
+
+   
     var bodyFormData = new FormData();
 
     bodyFormData.append('first_name', data.fname);
@@ -80,6 +85,7 @@ function CareerForm() {
  
     if(!token){
       // setIsPopoverOpen(true)
+      reset()
       axios({
          method: "post",
          url: `https://webprojectmockup.com/custom/mass_interact/public/api/career_form`,
@@ -205,11 +211,16 @@ function CareerForm() {
                 <h4>Current Openings:<span> Chicago </span></h4>
 
                 <ul className="careers-info-list">
-                   <li>Sales Executive</li>
+                   {
+                      category.map((item, index)=>(
+                        <li key={index} >{item.title}</li>
+                      ))
+                   }
+                   {/* <li>Sales Executive</li>
                    <li>Tour Specialist</li>
                    <li>360 Photographer</li>
                    <li>F/W Social Media Internship</li>
-                   <li>F/W 360° Editor Internship</li>
+                   <li>F/W 360° Editor Internship</li> */}
                 </ul>
                 
              </div>
@@ -233,11 +244,16 @@ function CareerForm() {
                    <div className="col-lg-6 col-sm-6 col-12" style={{display:'flex', flexDirection:'row'}}>
                    <span style={{color:'red'}}>*&nbsp;</span>
                   <select type="text"  placeholder="Desired Position" {...register("DP")}  className="controlllll p-2" >
-                        <option value="Sales Executive">Sales Executive</option>
+                     {
+                        category.map((item, index)=>(
+                           <option key={index} value={item.title}>{item.title}</option>
+                        ))
+                     }
+                        {/* <option value="Sales Executive">Sales Executive</option>
                         <option value="Tour Specialist">Tour Specialist</option>
                         <option value="360 Photographer">360 Photographer</option>
                         <option value="F/W Social Media Internship">F/W Social Media Internship</option>
-                        <option value="F/W 360° Editor Internship">F/W 360° Editor Internship</option>
+                        <option value="F/W 360° Editor Internship">F/W 360° Editor Internship</option> */}
                   </select>
                    </div>
                    <div className="col-lg-6 col-sm-6 col-12" style={{display:'flex', flexDirection:'row'}}>
@@ -271,6 +287,7 @@ function CareerForm() {
                    <input className="my-input" name="Request A Quote" type="submit" />
                    <div style={{ }}  className="recaptcha-csss">
                               <ReCAPTCHA
+                                 size='normal'
                                  onChange={recaptchaVal}
                                  sitekey="6LdzjpocAAAAAI_h98i0kQihQYk9MZTSQK5bJTnI"
                               />

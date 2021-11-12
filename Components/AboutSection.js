@@ -84,14 +84,14 @@ return (
                             src={image2}
                             />
                             <h3>OUR MISSION</h3>
-                            <p>
+                            <p className='about-vm'>
                             {obj.mission}
                                 {/* Mass Interact’s mission is to give your business a professional and cutting-edge online presence. Through our technology, photography, and virtual tours, we aim to increase your SEO, Google Rankings, customer confidence, and viewer experience to unprecedented levels.  */}
                             </p>
                         </div>
                     </div>
                 </div>
-                <div className="col-lg-6">
+                <div data-aos="flip-right" className="col-lg-6">
                     <div data-aos="flip-right" className="our-mission-vision">
                         <div className="our-mission-vision-padding">
                             <Image 
@@ -99,7 +99,7 @@ return (
                             src={image3}
                             />
                             <h3>OUR VISION</h3>
-                            <p>
+                            <p className='about-vm'>
                             {obj.vision}
                             {/* We are an innovative 360 virtual tour company. Our vision is to help your business get the highest exposure possible across digital and social. Our goal is to provide unique and impactful experiences by creating virtual reality. */}
                             </p>

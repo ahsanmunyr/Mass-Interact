@@ -60,7 +60,7 @@ function HomeSection() {
         });
      });
 
-     const { register, handleSubmit, watch, formState: { errors } } = useForm();
+     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
      const onSubmit =  (data) => {
   
       // this.props.onSubmit(recaptchaValue);
@@ -90,6 +90,7 @@ function HomeSection() {
    
       
          if(!token){
+            reset()
             // setIsPopoverOpen(true)
             // axios.post(`https://www.massinteract.com/send_email.php?ver=${n}`, obj)
             axios({

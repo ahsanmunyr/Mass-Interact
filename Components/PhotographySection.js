@@ -186,7 +186,7 @@ function PhotographySection() {
                </div>
                <div data-aos="fade-right" className="multiple-2 my-auto ml-auto">
                <ActiveLink activeClassName="active" href="/contact">
-                                <a onClick={()=> window.scrollTo(0, 0)}  style={{color: 'white'}} ><button>Request a Qoute Now</button></a>
+                                <a onClick={()=> window.scrollTo(0, 0)}  style={{color: 'white'}} ><button>Request A Qoute Now</button></a>
                 </ActiveLink>
                </div>
             </div>

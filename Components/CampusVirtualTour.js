@@ -112,9 +112,9 @@ function CampusVirtualTourSection() {
                </div>
                <div data-aos="fade-right" className="multiple-2 my-auto ml-auto">
 
-               {/* <Link  onClick={()=> window.scrollTo(0, 0)}  style={{color: 'white'}}  to="/contact">  <button>Request a Qoute Now</button></Link>  */}
+               {/* <Link  onClick={()=> window.scrollTo(0, 0)}  style={{color: 'white'}}  to="/contact">  <button>Request A Qoute Now</button></Link>  */}
                          <ActiveLink activeClassName="active" href="/contact">
-                                <a onClick={()=> window.scrollTo(0, 0)}  style={{color: 'white'}} > <button>Request a Qoute Now</button></a>
+                                <a onClick={()=> window.scrollTo(0, 0)}  style={{color: 'white'}} > <button>Request A Qoute Now</button></a>
                         </ActiveLink>
                </div>
             </div>

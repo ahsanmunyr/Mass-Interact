@@ -19,6 +19,8 @@ const APPURL = 'https://webprojectmockup.com/custom/mass_interact/public'
 function Category({ lBlog,Tag,Category}) {
    const [pageIndex, setPageIndex] = useState(1);
    const [apiCurrentPage, onChangeData] = useState({})
+   const [obj, onChangeObj] = useState([])
+   const [search, onChangeSearch]= useState('')
     var router = useRouter()
 const { id } = router.query
     const [filteredData,setFilteredData] = useState([]);
@@ -27,10 +29,10 @@ const { id } = router.query
     const [filteredData3,setFilteredData3] = useState([]);
   
     const handleSearch = (event) => {
+      onChangeSearch(event.target.value)
        let value = event.target.value
-       let result = [];
-       let x = array.data
-       result = x.filter((data) => {
+      //  let result = [];
+        let result = obj.filter((data) => {
        return data.title.search(value) != -1 || data.consultant.search(value) != -1 || data.date.search(value) != -1  || data.description.search(value) != -1
        });
        console.log(result)
@@ -57,7 +59,7 @@ const { id } = router.query
                   //  a
                   //  a(response.data.data.data)
                   onChangeData(response.data.data)
-                  setFilteredData(response.data.data.data)
+                  onChangeObj(response.data.data.data)
                }
             
             })
@@ -100,11 +102,11 @@ const { id } = router.query
                         </div>
             </div>
             {
-            filteredData.length > 0 ?
+            obj.length > 0 ?
           <div className="col-xl-8 col-lg-8 col-md-8 col-12 pl-2">
         
          {
-            filteredData.map((item, index)=>(
+              (search == '' ? obj : filteredData).map((item, index)=>(
                <div className="my-5" key={index}>
                 <div data-aos="fade-up-right"  className="img-item blogImage">
                    <img src={'https://webprojectmockup.com/custom/mass_interact/public/'+item.image} />
@@ -235,7 +237,12 @@ const { id } = router.query
             </div>: null
             }
           </div>
-          <div style={{width: '70%', flexDirection:'row', display:'flex', justifyContent:'end'}}>
+          <div style={{
+                  width: '100%',
+                  flexDirection: 'row',
+                  display: 'flex',
+                  justifyContent: 'space-between'
+               }}>
                
                <div data-aos="fade-right" className="button-blog">
                <button onClick={() => setPageIndex(pageIndex - 1)} disabled={pageIndex == 1 ? true : false}  >

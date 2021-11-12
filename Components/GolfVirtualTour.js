@@ -98,7 +98,7 @@ function GolfVirtualTourSection() {
         <div data-aos="fade-right" className="multiple-2 my-auto ml-auto">
             
                 <ActiveLink activeClassName="active" href="/google-virtual-tour">
-                                <a onClick={()=> window.scrollTo(0, 0)}  style={{color: 'white'}} ><button>Request a Qoute Now</button></a>
+                                <a onClick={()=> window.scrollTo(0, 0)}  style={{color: 'white'}} ><button>Request A Qoute Now</button></a>
                 </ActiveLink>
         </div>
      </div>

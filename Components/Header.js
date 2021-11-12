@@ -123,32 +123,32 @@ return(
                                 <ul>
                                     <li>
                                         <ActiveLink activeClassName="active" href="/">
-                                                <a id="hover_link" className="d-inline">Home</a>
+                                                <a onClick={click} id="hover_link" className="d-inline">Home</a>
                                         </ActiveLink>
                                     </li>
                                     <li>
                                         <ActiveLink activeClassName="active" href="/about">
-                                                <a id="hover_link" className="d-inline">About Us</a>
+                                                <a onClick={click} id="hover_link" className="d-inline">About Us</a>
                                         </ActiveLink>
                                     </li>
                                     <li>
                                         <ActiveLink activeClassName="active" href="/career">
-                                                <a id="hover_link" className="d-inline">Careers</a>
+                                                <a onClick={click} id="hover_link" className="d-inline">Careers</a>
                                         </ActiveLink>
                                     </li>
                                     <li>
                                         <ActiveLink activeClassName="active" href="/blog">
-                                                <a id="hover_link" className="d-inline">Blog</a>
+                                                <a onClick={click} id="hover_link" className="d-inline">Blog</a>
                                         </ActiveLink>
                                     </li>
                                     <li>
                                         <ActiveLink activeClassName="active" href="/contact">
-                                                <a id="hover_link" className="d-inline">Contact</a>
+                                                <a onClick={click} id="hover_link" className="d-inline">Contact</a>
                                         </ActiveLink>
                                     </li>
                                     <li>
                                         <ActiveLink activeClassName="active" href="/college-campus-virtual-tours">
-                                                <a id="hover_link" className="d-inline">Campus Virtual Tour</a>
+                                                <a onClick={click} id="hover_link" className="d-inline">Campus Virtual Tour</a>
                                         </ActiveLink>
                                     </li>
                                 </ul>
@@ -295,7 +295,7 @@ return(
                                                 CVT.map((item, index)=>(
                                                     <div key={index} className="col-lg-6 col-md-12 px-1">
                                                         <div className="for-flexing">
-                                                            <a href={item.redirect_link} rel="noopener noreferrer">
+                                                            <a onClick={click} href={item.redirect_link} rel="noopener noreferrer">
                                                                 <div className="img-size-mega-menu">
                                                                     <img  alt='some value' src={'https://webprojectmockup.com/custom/mass_interact/public/'+item.image} />
                                                                     {/* <Image alt='some value' className="next-image" placeholder='blur' src={MS}/> */}
@@ -313,7 +313,7 @@ return(
                                             
                                             <div className="col-lg-6 col-md-12 px-1">
                                                 <div className="for-flexing">
-                                                    <a href="https://www.massinteract.com/marietta-college/" rel="noopener noreferrer">
+                                                    <a  href="https://www.massinteract.com/marietta-college/" rel="noopener noreferrer">
                                                         <div className="img-size-mega-menu">
                                                             <Image alt='some value' className="next-image" placeholder='blur' src={MS}/>
                                                         </div>

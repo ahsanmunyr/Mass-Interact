@@ -26,8 +26,8 @@ const APPURL = 'https://webprojectmockup.com/custom/mass_interact/public'
 function BlogSection({array1,array2,array3}) {
    const [pageIndex, setPageIndex] = useState(1);
    const [apiCurrentPage, onChangeData] = useState({})
-
-
+   const [obj, onChangeObj] = useState([])
+   const [search, onChangeSearch]= useState('')
     const [filteredData,setFilteredData] = useState([]);
     const [filteredData1,setFilteredData1] = useState([]);
     const [filteredData2,setFilteredData2] = useState([]);
@@ -85,10 +85,12 @@ function BlogSection({array1,array2,array3}) {
    axios.get(`https://webprojectmockup.com/custom/mass_interact/public/api/blog?page=${pageIndex}`)
    .then((response) => {
       if(response.data.success){
+     
          //  a
          //  a(response.data.data.data[0].id)
          onChangeData(response.data.data)
-         setFilteredData(response.data.data.data)
+         // setFilteredData(response.data.data.data)
+         onChangeObj(response.data.data.data)
       }
    })
    .catch((rrr)=> console.log(rrr))
@@ -101,12 +103,14 @@ function BlogSection({array1,array2,array3}) {
 //  }
 
 const handleSearch = (event) => {
+   onChangeSearch(event.target.value)
    let value = event.target.value
-   let result = [];
-   result = filteredData.filter((data) => {
+   // let result = [];
+   // console.log(value);
+   let result = obj.filter((data) => {
    return data.title.search(value) != -1 || data.consultant.search(value) != -1 || data.date.search(value) != -1  || data.description.search(value) != -1
    });
-   console.log(result)
+   // console.log(result,"::::::::::::::::::::")
    setFilteredData(result);
 }
 
@@ -125,11 +129,11 @@ const handleSearch = (event) => {
                         </div>
             </div>
             {
-            filteredData.length > 0 ?
+            obj.length > 0 ?
           <div className="col-xl-8 col-lg-8 col-md-8 col-12 pl-2">
-        
+        {/* filteredData */}
          {
-            filteredData.map((item, index)=>(
+            (search == '' ? obj : filteredData).map((item, index)=>(
                <div className="my-5" key={index}>
                 <div data-aos="fade-up-right"  className="img-item blogImage">
                    <img src={'https://webprojectmockup.com/custom/mass_interact/public/'+item.image} />
@@ -258,7 +262,12 @@ const handleSearch = (event) => {
             </div>: null
             }
              </div>
-               <div style={{width: '70%', flexDirection:'row', display:'flex', justifyContent:'end'}}>
+               <div style={{
+                  width: '100%',
+                  flexDirection: 'row',
+                  display: 'flex',
+                  justifyContent: 'space-between'
+               }}>
                
                   <div data-aos="fade-right" className="button-blog">
                   <button onClick={() => setPageIndex(pageIndex - 1)} disabled={pageIndex == 1 ? true : false}  >

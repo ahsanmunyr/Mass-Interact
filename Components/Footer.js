@@ -30,7 +30,7 @@ return (
                 <p>We are committed to getting your business the highest exposure possible on the most visited website in the world: Google. It is vital to the success of any business to have a complete, professional, and cutting-edge online presence.</p>
             </div>
         </div>
-        <div  className="col-lg-2 col-sm-6">
+        <div  className="col-lg-2 col-sm-4">
             <div className="footer-2">
                 <h6>Quick Links</h6>
                 <ul>
