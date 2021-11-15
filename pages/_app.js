@@ -92,6 +92,9 @@ function MyApp({ Component, pageProps, data, testimonial, latestBlogs,tags,categ
 
   return      <> 
                     <Head>
+                            <title>Mass Interact</title>
+                            <meta name="title" content="Mass Interact"/>
+                            <meta name="description" content="Massinteract is the global leader preferred Google Agency in creating virtual tours online!"/>
                             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
                             <meta name="viewport" content="width=device-width, initial-scale=1" />
                             <link

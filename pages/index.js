@@ -13,7 +13,9 @@ export default function Home({brands, test}) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Home</title>
+        <title>Mass Interact</title>
+        <meta name="title" content="Mass Interact"/>
+        <meta name="description" content="Massinteract is the global leader and preferred Google Agency in creating custom virtual tours online!"/>
         <meta name="Virtual Tour Company | Virtual Tour Provider | Mass Interact" content="Mass Interact is Google trusted Virtual Tour Company Provides 360 Virtual Tour Solution for small to large size business. Schedule a Live Demo Today!" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

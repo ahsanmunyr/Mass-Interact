@@ -22,7 +22,7 @@ function PlayVideo({heading}) {
             }}
             className='ssss'
 
-            height='none'
+            height='1200px'
             width="100%"
             muted={true}
             loop={true}
