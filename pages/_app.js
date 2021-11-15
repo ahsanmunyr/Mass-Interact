@@ -17,7 +17,7 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 import 'next-pagination/dist/index.css'
 import PreLoader from './../Assets/preloader.gif'
 // import Loading from './Loading'
-
+// import Script from "next/script"
 config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatically since it's being imported above
 
 
@@ -94,6 +94,8 @@ function MyApp({ Component, pageProps, data, testimonial, latestBlogs,tags,categ
                     <Head>
                             <title>Mass Interact</title>
                             <meta name="title" content="Mass Interact"/>
+                            <meta name="theme-color" />
+                            {/* <meta charset="UTF-8" /> */}
                             <meta name="description" content="Massinteract is the global leader preferred Google Agency in creating virtual tours online!"/>
                             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
                             <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -102,6 +104,7 @@ function MyApp({ Component, pageProps, data, testimonial, latestBlogs,tags,categ
                               integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
                               crossOrigin="anonymous" 
                             />
+                                {/* <Script strategy="afterInteractive" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" /> */}
                     </Head>
                     {
                       !show ?
@@ -116,7 +119,7 @@ function MyApp({ Component, pageProps, data, testimonial, latestBlogs,tags,categ
               </>
 }
 
-MyApp.getInitialProps = async () => {
+MyApp.getInitialProps  = async () => {
   const res = await fetch('https://webprojectmockup.com/custom/mass_interact/public/api/get_clients');
   const json = await res.json();
   const ress = await fetch('https://webprojectmockup.com/custom/mass_interact/public/api/get_testinomials');

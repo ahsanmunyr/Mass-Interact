@@ -853,6 +853,16 @@ li.menu-item {
     color: white;
     width: 100%;
     overflow: hidden;
+    /* min-height: 700px; */
+    /* transition: transform 1.4s; */
+}
+
+.container-for-video {
+    position: relative;
+    text-align: center;
+    color: white;
+    width: 100%;
+    overflow: hidden;
     min-height: 700px;
     /* transition: transform 1.4s; */
 }

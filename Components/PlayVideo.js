@@ -10,7 +10,7 @@ function PlayVideo({heading}) {
   }, []);
   return (
       <section>
-        <div className="container4" style={{backgroundColor: 'black'}}>
+        <div className="container-for-video" style={{backgroundColor: 'black'}}>
         <ReactPlayer
             url={v}
             style={{
