@@ -29,6 +29,10 @@ return (
                 />
                 <p>We are committed to getting your business the highest exposure possible on the most visited website in the world: Google. It is vital to the success of any business to have a complete, professional, and cutting-edge online presence.</p>
             </div>
+            <a href="https://www.bbb.org/us/il/schaumburg/profile/internet-marketing-services/mass-interact-0654-88488219/#sealclick" rel="noopener noreferrer">
+                     <img src="https://seal-chicago.bbb.org/seals/blue-seal-150-110-whitetxt-bbb-88488219.png" style={{}}  alt="Mass Interact BBB Business Review" />
+                     
+                  </a> 
         </div>
         <div  className="col-lg-2 col-sm-4">
             <div className="footer-2">
@@ -39,11 +43,11 @@ return (
                                                     <p className="footer-custom">About Us</p>
                                                 </a>
                         </ActiveLink>
-                        <ActiveLink activeClassName="active" href="/career">
+                        {/* <ActiveLink activeClassName="active" href="/career">
                                                 <a style={{textDecorationLine:'none'}} onClick={click} className="nav__link" >
                                                     <p className="footer-custom">Services & Work</p>
                                                 </a>
-                        </ActiveLink>
+                        </ActiveLink> */}
                         <ActiveLink activeClassName="active" href="/career">
                                                 <a style={{textDecorationLine:'none'}} onClick={click} className="nav__link" >
                                                     <p className="footer-custom">Careers</p>
@@ -120,14 +124,14 @@ return (
             </div>
         </div>
        </div>
-       <div className="row py-5">
+       {/* <div className="row py-5">
        <div className="col-lg-12 col-sm-6 text-center">
        <a href="https://www.bbb.org/us/il/schaumburg/profile/internet-marketing-services/mass-interact-0654-88488219/#sealclick" rel="noopener noreferrer">
                      <img src="https://seal-chicago.bbb.org/seals/blue-seal-150-110-whitetxt-bbb-88488219.png" style={{}}  alt="Mass Interact BBB Business Review" />
                      
                   </a> 
        </div>
-       </div>
+       </div> */}
     </div>
  </footer>
    

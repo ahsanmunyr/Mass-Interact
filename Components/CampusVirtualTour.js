@@ -71,7 +71,7 @@ function CampusVirtualTourSection() {
       <section className="py-5" style={{backgroundColor: '#efefef'}}>
          <div className="container">
          <div className="row">
-            <div data-aos="fade-right" className="col-lg-4 col-sm-6 mx-auto my-3">
+            <div data-aos="fade-down" className="col-lg-4 col-sm-6 mx-auto my-3">
                <div className="service-1-card">
                   <h3>Customized Brand Experience</h3>
                   <p>
@@ -89,7 +89,7 @@ function CampusVirtualTourSection() {
                </div>
             </div>
 
-            <div data-aos="fade-left" className="col-lg-4 col-sm-6 mx-auto my-3">
+            <div data-aos="fade-down" className="col-lg-4 col-sm-6 mx-auto my-3">
                <div className="service-1-card">
                   <h3>Mobile-ready and Responsive</h3>
                   <p>
@@ -106,11 +106,11 @@ function CampusVirtualTourSection() {
       <section className="py-5"  style={{backgroundColor: '#f15929'}}>
          <div className="container">
             <div className="multiple-location">
-               <div data-aos="fade-left" className="multiple-1">
+               <div data-aos="fade-down" className="multiple-1">
                   <h3>HAVE MULTIPLE LOCATIONS?  <br/> NO PROBLEM.</h3>
                   <p>We have photographers in every major city, allowing us to schedule & shoot your 360 Tour where you need us!</p>
                </div>
-               <div data-aos="fade-right" className="multiple-2 my-auto ml-auto">
+               <div data-aos="fade-down" className="multiple-2 my-auto ml-auto">
 
                {/* <Link  onClick={()=> window.scrollTo(0, 0)}  style={{color: 'white'}}  to="/contact">  <button>Request A Qoute Now</button></Link>  */}
                          <ActiveLink activeClassName="active" href="/contact">

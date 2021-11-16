@@ -85,19 +85,21 @@
     border-color: #e8e8e8;
     border-style: double;
     color: #333;
+    background-color: white;
 }
 
 .controlllll:focus-visible{
     /* border: none; */
     border-color: #e8e8e8;
     border-style: none;
-    
+    background-color: white;
 }
 
 .controlllll:focus{
     /* border: none; */
     border-color: #e8e8e8;
     border-style: none;
+    background-color: white;
     
 }
 /* .controlllll div:nth-child(3) {
@@ -327,6 +329,7 @@
     justify-content: center;
     align-items: center;
     align-self: center;
+    height: 100%;
 }
 .video-on-parallex{
     display: flex;
@@ -973,6 +976,7 @@ hr {
     padding: 60px;
     border-radius: 30px;
     color: white;
+    height: 420px;
     /* height: 600px; */
     /* width: 500px; */
 }
