@@ -3,6 +3,7 @@ import styles from '../styles/Home.module.css'
 import Banner from '../Components/Banner'
 import Education from '../Components/OurWork/Education'
 import Testimonials from '../Components/Testimonial'
+import axios from 'axios'
 // our-domain.com/Home
 export default function EducationMain({test}) {
   // console.log("SADSADSADSAD", test)

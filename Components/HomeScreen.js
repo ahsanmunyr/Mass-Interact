@@ -73,7 +73,7 @@ function HomeSection() {
            address: data.address,
            details: data.details
          };
-         console.log(obj)
+         // console.log(obj)
    
          var bodyFormData = new FormData();
    
@@ -100,8 +100,8 @@ function HomeSection() {
                headers: { "Content-Type": "x-www-form-urlencoded" },
              })
             .then(response => {
-               console.log("Status: ", response.status);
-               console.log("Data: ", response.data);
+               // console.log("Status: ", response.status);
+               // console.log("Data: ", response.data);
                setIsPopoverOpen(true)
                onChangeMessage('Your submission has been received and we will contact you soon.')
                onChangeMessageTitle('Thank You')
@@ -116,8 +116,8 @@ function HomeSection() {
                   });
             }).catch(error => {
                setIsPopoverOpen(true)
-               onChangeMessage("Network Error")
-               onChangeMessageTitle('ERROR, Please Try Again')
+               onChangeMessageTitle("Network Error")
+               onChangeMessage('ERROR, Please Try Again')
                // console.error('Something went wrong!', error);
                // toast.error('Something went wrong!', {
                //    position: "top-right",
@@ -132,8 +132,8 @@ function HomeSection() {
             });
          }else{
             setIsPopoverOpen(true)
-            onChangeMessage("Error")
-            onChangeMessageTitle('Recaptcha Error')
+            onChangeMessageTitle("Error")
+            onChangeMessage('Recaptcha Error')
             // toast.error('Recaptcha Error', {
             //    position: "top-right",
             //    autoClose: 5000,
@@ -146,8 +146,8 @@ function HomeSection() {
          }
       }else{
          setIsPopoverOpen(true)
-         onChangeMessage("Warning")
-         onChangeMessageTitle('Please fill out the following form.')
+         onChangeMessageTitle("Warning")
+         onChangeMessage('Please fill out the following form.')
          // toast.warning('Please fill out the following form.', {
          //    position: "top-right",
          //    autoClose: 5000,
@@ -166,7 +166,7 @@ function HomeSection() {
    
    function recaptchaVal(value) {
       onChangeToken(value)
-      console.log("Captcha value:", value);
+      // console.log("Captcha value:", value);
     }
    const afterLoading = () => {
       onChangeLoadingImage(true)

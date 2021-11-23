@@ -34,7 +34,7 @@ function ContactUsSection() {
         address: data.address,
         details: data.details
       };
-      console.log(obj)
+      // console.log(obj)
 
       var bodyFormData = new FormData();
 
@@ -61,8 +61,8 @@ function ContactUsSection() {
             headers: { "Content-Type": "x-www-form-urlencoded" },
           })
          .then(response => {
-            console.log("Status: ", response.status);
-            console.log("Data: ", response.data);
+            // console.log("Status: ", response.status);
+            // console.log("Data: ", response.data);
             setIsPopoverOpen(true)
             onChangeMessage('Your submission has been received and we will contact you soon.')
             onChangeMessageTitle('Thank You')
@@ -122,7 +122,7 @@ function ContactUsSection() {
    };
    function recaptchaVal(value) {
       onChangeToken(value)
-      console.log("Captcha value:", value);
+      // console.log("Captcha value:", value);
     }
   return (
      <section>

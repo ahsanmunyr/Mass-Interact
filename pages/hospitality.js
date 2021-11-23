@@ -3,6 +3,7 @@ import styles from '../styles/Home.module.css'
 import Banner from '../Components/Banner'
 import Hospitaility from '../Components/OurWork/Hospitaility'
 import Testimonials from '../Components/Testimonial'
+import axios from 'axios'
 // our-domain.com/Home
 export default function HospitailityMain({test}) {
   return (

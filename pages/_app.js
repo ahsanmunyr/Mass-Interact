@@ -24,7 +24,7 @@ config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatic
 
 
 const delay = 1;
-function MyApp({ Component, pageProps, data, testimonial, latestBlogs,tags,categories }) {
+function MyApp({ Component, pageProps, data, testimonial, latestBlogs,tags,categories,about }) {
   // console.log(latestBlogs)
   const [isLoading, setIsLoading] = useState(false);
   const Router = useRouter();
@@ -96,9 +96,12 @@ function MyApp({ Component, pageProps, data, testimonial, latestBlogs,tags,categ
                             <meta name="title" content="Mass Interact"/>
                             <meta name="theme-color" />
                             {/* <meta charset="UTF-8" /> */}
+                            <meta charSet="utf-8" />
+                            <meta httpEquiv = "content-language" content = "en"/>
                             <meta name="description" content="Massinteract is the global leader preferred Google Agency in creating virtual tours online!"/>
                             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
                             <meta name="viewport" content="width=device-width, initial-scale=1" />
+                            <meta name="viewport" content="viewport-fit=cover" />
                             <link
                               href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
                               integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
@@ -112,7 +115,7 @@ function MyApp({ Component, pageProps, data, testimonial, latestBlogs,tags,categ
                       :
                       <>
                       <Header/>
-                      <Component brands={data} test={testimonial} lBlog={latestBlogs} Tag={tags} Category={categories} {...pageProps} />
+                      <Component brands={data} test={testimonial} lBlog={latestBlogs} Tag={tags} Category={categories} Abouts={about} {...pageProps}  />
                       <Footer/>
                       </>
                     }
@@ -130,8 +133,10 @@ MyApp.getInitialProps  = async () => {
   const jsonsss = await ressss.json()
   const resssss = await fetch('https://webprojectmockup.com/custom/mass_interact/public/api/get_category')
   const jsonssss = await resssss.json()
-  // console.log(json)
-  return { data: json.data, testimonial: jsonn, latestBlogs: jsonss, tags: jsonsss, categories: jsonssss }
+  const ressssss = await fetch('https://webprojectmockup.com/custom/mass_interact/public/api/about')
+  const jsonsssss = await ressssss.json()
+  // console.log(jsonsssss, "MA KI")
+  return { data: json.data, testimonial: jsonn, latestBlogs: jsonss, tags: jsonsss, categories: jsonssss, about: jsonsssss }
 }
 
 

@@ -4,6 +4,7 @@ import styles from '../styles/Home.module.css'
 import Banner from '../Components/Banner'
 import PhotographySection from '../Components/PhotographySection'
 import OurSampleWork from '../Components/OurSampleWork'
+import axios from 'axios'
 // our-domain.com/Home
 export default function GolfCourseVirtualTour() {
   return (

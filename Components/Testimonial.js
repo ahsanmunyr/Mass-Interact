@@ -23,7 +23,7 @@ function Testimonials({data}) {
       setIndex(selectedIndex);
     };
     useEffect(() => {
-        console.log(data, 's')
+        // console.log(data, 's')
         if(data.success){
             onChangeArray(data.data)
         }

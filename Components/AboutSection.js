@@ -8,13 +8,16 @@ import AOS from 'aos';
 import Link from 'next/link'
 import Image from 'next/image'
 
-function AboutSection({About}) {
+function AboutSection({aboutss}) {
+    // console.log(abouts)
     const [obj, onChangeObj] = useState({})
 
 useEffect(() => {
-    if(About.success){
+    if(aboutss.success){
         //  a
-        onChangeObj(About.data[0])
+        // console.log(abouts)
+        // alert(aboutss.success)
+        onChangeObj(aboutss.data[0])
     }
     // onChangeObj()
     AOS.init({

@@ -94,8 +94,8 @@ const onSubmit =  (data) => {
        })
       //  axios.post(`https://www.massinteract.com/send_email.php?ver=${n}`, obj)
        .then(response => {
-          console.log("Status: ", response.status);
-          console.log("Data: ", response.data);
+         //  console.log("Status: ", response.status);
+         //  console.log("Data: ", response.data);
          //  setIsPopoverOpen(true)
          if(response.data.success){
             setIsPopoverOpen(true)
@@ -161,7 +161,7 @@ const onSubmit =  (data) => {
    };
    function recaptchaVal(value) {
       onChangeToken(value)
-      console.log("Captcha value:", value);
+      // console.log("Captcha value:", value);
     }
 
     const _handleUploadImage = (event) => {

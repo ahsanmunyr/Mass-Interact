@@ -3,6 +3,8 @@ import styles from '../styles/Home.module.css'
 import Banner from '../Components/Banner'
 import RealEstate from '../Components/OurWork/RealEstate'
 import Testimonials from '../Components/Testimonial'
+
+import axios from 'axios'
 // our-domain.com/Home
 export default function RealEstateMain({test}) {
   return (

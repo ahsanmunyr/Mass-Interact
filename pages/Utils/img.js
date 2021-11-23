@@ -7,7 +7,7 @@ const Imag = ({ src, ...props }) => {
       ...props
     });
   } catch {
-    console.log("Not using Next.js");
+    // console.log("Not using Next.js");
     return React.createElement("img", { src, ...props });
   }
 };

@@ -35,7 +35,7 @@ const { id } = router.query
         let result = obj.filter((data) => {
        return data.title.search(value) != -1 || data.consultant.search(value) != -1 || data.date.search(value) != -1  || data.description.search(value) != -1
        });
-       console.log(result)
+      //  console.log(result)
        setFilteredData(result);
     }
  
